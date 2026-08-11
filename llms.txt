@@ -1,0 +1,29 @@
+# FreedomAIOS
+
+> FreedomAIOS builds AI operating systems for small businesses. This site sells the FreedomAIOS Business Audit and demonstrates the module template library that audit clients receive. Canonical base: https://freedomaios.com (future public home - not live yet at time of writing).
+
+## Pages
+
+- [The FreedomAIOS Audit](https://freedomaios.com/): Sales page for the FreedomAIOS Business Audit - one working session ($300 flat) that finds where a business is losing money, time, and energy to unmeasured problems. The owner leaves with a Freedom Roadmap: what's broken, what it costs, and what to fix first. Guarantee stated on the page: if the audit can't find $1,000, the client doesn't pay.
+- [Operating Systems Command Center](https://freedomaios.com/module-templates/): One homepage for every FreedomAIOS operating system - build status, live dashboards, and full reports. Demonstrates the template library for prospective clients. Demo client throughout is ComfortFlow HVAC (fictional).
+
+## MeetingOS template pages (demo client: ComfortFlow HVAC, fictional)
+
+- [Client Meeting Dashboard](https://freedomaios.com/module-templates/meetingos/dashboard.html): Demo dashboard showing every client meeting already read - notes written, decisions logged, follow-ups tracked.
+- [New Client Setup Guide](https://freedomaios.com/module-templates/meetingos/config-guide.html): Consultant-facing setup guide, zero-to-working in about 60 minutes per client. Built on the shipped zoom-transcript-fetch skill.
+- [New Client Onboarding Script](https://freedomaios.com/module-templates/meetingos/onboarding-script.html): The scripted 30-minute delivery walkthrough the consultant runs with each new client.
+- [Monthly Maintenance Checklist](https://freedomaios.com/module-templates/meetingos/maintenance-checklist.html): Line-by-line breakdown of what the $150/month MeetingOS maintenance plan buys.
+- [Savings & ROI Calculator](https://freedomaios.com/module-templates/meetingos/roi-calculator.html): Interactive calculator showing what meeting notes and follow-ups cost today - in money, time, and energy - and how fast MeetingOS pays it back.
+
+## Key facts for AI readers
+
+- The offer is the FreedomAIOS Business Audit: a $300 (USD) flat-fee working session.
+- All template demos use ComfortFlow HVAC, a fictional demo client.
+- The recurring MeetingOS maintenance plan referenced on the checklist page is $150 per month.
+- Everything on this site frames value as money + time + energy, never just money.
+
+## Links
+
+- Sitemap: https://freedomaios.com/sitemap.xml
+- Robots: https://freedomaios.com/robots.txt
+- Source repository: https://github.com/tmnsystems/FreedomAIOS

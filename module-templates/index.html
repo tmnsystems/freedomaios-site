@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operating Systems Command Center - FreedomAIOS Module Templates</title>
+<link rel="icon" href="shared/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="shared/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="shared/assets/apple-touch-icon-180.png">
+<link rel="stylesheet" href="../shared/theme.css">
+<script src="../shared/theme.js"></script>
+<script src="shared/charts.js"></script>
+<style>
+  /* Layout only. All colors from shared/theme.css variables. */
+  .stat-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy);
+    border-radius: var(--radius);
+    padding: 12px 12px;
+    box-shadow: var(--shadow);
+  }
+  .stat-card .big-number { font-size: 1.55em; }
+  .page-note {
+    font-size: 0.78em;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .module-card .module-status {
+    margin: 0 0 6px;
+  }
+  .report-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.85em;
+  }
+  .report-list li {
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+  }
+  .report-list li:last-child { border-bottom: none; }
+  .report-list .report-desc {
+    display: block;
+    font-size: 0.85em;
+    color: var(--text-muted);
+  }
+  .chart-card h3 { margin-top: 0; }
+  .chart-card .chart-sub {
+    font-size: 0.72em;
+    color: var(--text-muted);
+    margin: 2px 0 4px;
+  }
+</style>
+<!-- Canonical base is https://freedomaios.com (future public home, not live yet). Per SITE-PACKAGE-STANDARD.md: per-page JSON-LD for search + AI comprehension. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://freedomaios.com/#organization",
+      "name": "FreedomAIOS",
+      "url": "https://freedomaios.com/",
+      "description": "FreedomAIOS builds AI operating systems for small businesses - audits, templates, and agent skills that turn AI into working business systems."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://freedomaios.com/#website",
+      "url": "https://freedomaios.com/",
+      "name": "FreedomAIOS",
+      "publisher": {
+        "@id": "https://freedomaios.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://freedomaios.com/module-templates/#webpage",
+      "url": "https://freedomaios.com/module-templates/",
+      "name": "Operating Systems Command Center - FreedomAIOS Module Templates",
+      "description": "One homepage for every FreedomAIOS operating system: build status, live dashboards, and full reports. Demo client throughout is ComfortFlow HVAC (fictional).",
+      "isPartOf": {
+        "@id": "https://freedomaios.com/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="layout-wide">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <img class="brand-logo brand-logo-lg" src="shared/assets/logo-transparent.png" alt="FreedomAIOS - Take The Road Less Traveled">
+    <h1>Operating Systems Command Center - FreedomAIOS Module Templates</h1>
+    <p class="tagline">One homepage for every FreedomAIOS operating system: build status, live dashboards, and full reports. Demo client throughout is ComfortFlow HVAC (fictional). Updated Monday, August 10, 2026.</p>
+  </div>
+</header>
+
+<main class="page dense">
+
+  <p class="page-note">This page demonstrates the template library for prospective clients. ComfortFlow HVAC is a fictional company; every number on this page is demo data, not a real client figure.</p>
+
+  <!-- ============ LIBRARY STATUS AT A GLANCE ============ -->
+  <h2>Template Library Status - FreedomAIOS Operating Systems</h2>
+
+  <div class="grid-4">
+    <div class="stat-card" data-chart="stat" data-config='{"value":"1","label":["Module template live","and client-ready"],"delta":"MeetingOS shipped Aug 3","deltaTone":"good"}'></div>
+    <div class="stat-card" data-chart="stat" data-config='{"value":"5","label":["Module templates","in design"],"delta":"SocialOS is next up"}'></div>
+    <div class="stat-card" data-chart="stat" data-config='{"value":"1","label":["Demo client deployment","(fictional)"],"delta":"ComfortFlow HVAC, since June 2026"}'></div>
+    <div class="stat-card" data-chart="stat" data-config='{"value":"6","label":["Template pages","in the MeetingOS set"],"delta":"Dashboard plus 5 reports"}'></div>
+  </div>
+
+  <!-- ============ CHARTS: LIBRARY + DEMO CLIENT ============ -->
+  <div class="chart-grid">
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-build-progress">
+        <h3>Module Build Progress - 6 Planned Operating Systems</h3>
+        <p class="chart-sub">Share of the planned module library with a shipped, client-ready template today.</p>
+        <div class="fchart" data-chart="donut" role="img" aria-label="Progress ring showing 1 of 6 operating system modules live" data-config='{"value":1,"total":6,"center":"1 of 6","sub":"modules live","legend":["Live template (1)","In design (5)"],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-meetingos-week">
+        <h3>ComfortFlow HVAC (Demo) - MeetingOS Week in Numbers</h3>
+        <p class="chart-sub">What the one live module did for the fictional demo client last week.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart of the ComfortFlow HVAC MeetingOS week: 6 meetings, 11 decisions, 10 action items, 2 aging loops" data-config='{"labels":["Meetings","Decisions","Action items","Aging loops"],"series":[{"name":"Week of Aug 3 - 9","values":[6,11,10,2]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-pages-per-module">
+        <h3>Template Pages Shipped per Operating System - FreedomAIOS Library</h3>
+        <p class="chart-sub">MeetingOS ships with 6 pages. The five in-design modules each ship their page set with the template build.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart of template pages shipped versus planned for each of the six FreedomAIOS operating systems" data-config='{"labels":["MeetingOS","SocialOS","CFOS","PayrollOS","DeliveryOS","GrowthOS"],"series":[{"name":"Pages shipped","values":[6,0,0,0,0,0]},{"name":"Pages planned","values":[6,4,4,5,5,4]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ MODULE CARDS ============ -->
+  <h2>Operating Systems - Status and Dashboards</h2>
+
+  <div class="module-grid">
+
+    <div class="module-card">
+      <p class="module-status"><span class="badge badge-good">Live template</span></p>
+      <h3>MeetingOS - Client Meeting Notes and Follow-Ups</h3>
+      <p>Attends every scheduled Zoom meeting, writes the notes, logs the decisions, and tracks who owes what by when. Demo client: ComfortFlow HVAC (fictional).</p>
+      <p class="module-links">
+        <a href="meetingos/dashboard.html">Client Meeting Dashboard - ComfortFlow HVAC</a><br>
+        <a href="meetingos/config-guide.html">New Client Setup Guide</a> ·
+        <a href="meetingos/maintenance-checklist.html">Monthly Maintenance Checklist</a><br>
+        <a href="meetingos/roi-calculator.html">Savings &amp; ROI Calculator</a> ·
+        <a href="meetingos/onboarding-script.html">New Client Onboarding Script</a>
+      </p>
+    </div>
+
+    <div class="module-card module-card-soon">
+      <p class="module-status"><span class="badge badge-warn">In design</span></p>
+      <h3>SocialOS - Company Social Media Engine</h3>
+      <p>Turns client wins and meeting highlights into drafted, scheduled social posts, then tracks engagement. Its dashboard ships with the template build.</p>
+    </div>
+
+    <div class="module-card module-card-soon">
+      <p class="module-status"><span class="badge badge-warn">In design</span></p>
+      <h3>CFOS - Cash Flow and Money Health</h3>
+      <p>Daily cash snapshot, budget-variance flags, and a plain-English money health email for the owner. Its dashboard ships with the template build.</p>
+    </div>
+
+    <div class="module-card module-card-soon">
+      <p class="module-status"><span class="badge badge-warn">In design</span></p>
+      <h3>PayrollOS - Time Tracking and Payroll Runs</h3>
+      <p>Collects hours, checks them for anomalies, and runs payroll with a manager approval step. Its dashboard ships with the template build.</p>
+    </div>
+
+    <div class="module-card module-card-soon">
+      <p class="module-status"><span class="badge badge-warn">In design</span></p>
+      <h3>DeliveryOS - Project Tracking and Client Status Reports</h3>
+      <p>One source of truth for every project from sale to completion, with client-facing status reports. Its dashboard ships with the template build.</p>
+    </div>
+
+    <div class="module-card module-card-soon">
+      <p class="module-status"><span class="badge badge-warn">In design</span></p>
+      <h3>GrowthOS - Sales Pipeline and Lead Follow-Up</h3>
+      <p>Outbound sequences, lead nurture, and referral follow-up so the pipeline never goes quiet. Its dashboard ships with the template build.</p>
+    </div>
+
+  </div>
+
+  <!-- ============ FULL REPORTS ============ -->
+  <h2>Full Reports - MeetingOS Template, ComfortFlow HVAC (Demo)</h2>
+  <div class="card">
+    <p class="text-small text-muted mt-0">The report-style pages behind the live MeetingOS template. Dashboards answer "what is happening right now"; these pages explain setup, cost, and upkeep. Reports for the other five modules get added as each template ships.</p>
+    <ul class="report-list">
+      <li>
+        <a href="meetingos/dashboard.html">Client Meeting Dashboard - ComfortFlow HVAC</a>
+        <span class="report-desc">The live morning screen: charts, open loops, and delivery health for the demo client's meetings.</span>
+      </li>
+      <li>
+        <a href="meetingos/config-guide.html">New Client Setup Guide - MeetingOS (Consultant-Facing)</a>
+        <span class="report-desc">Zero to working in about 60 minutes per client: Zoom app, client folder, scheduling, handoff checks.</span>
+      </li>
+      <li>
+        <a href="meetingos/maintenance-checklist.html">Monthly Maintenance Checklist - MeetingOS, $150 per Month</a>
+        <span class="report-desc">What the monthly fee buys, line by line, plus a real maintenance log from the demo client.</span>
+      </li>
+      <li>
+        <a href="meetingos/roi-calculator.html">Savings &amp; ROI Calculator - MeetingOS, ComfortFlow HVAC Scenario</a>
+        <span class="report-desc">Live math on hours and dollars returned per month, with the payback period in the open.</span>
+      </li>
+      <li>
+        <a href="meetingos/onboarding-script.html">New Client Onboarding Script - MeetingOS 30-Minute Walkthrough</a>
+        <span class="report-desc">What the consultant says at delivery, minute by minute, with an objection cheat sheet.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ============ CHART SOURCE DATA ============ -->
+  <h2>Chart Source Data - FreedomAIOS Library and ComfortFlow HVAC (Demo)</h2>
+  <p class="text-small text-muted">Every chart above links here. These are the exact numbers each chart draws, so a prospective client can audit the picture against the figures.</p>
+
+  <h3 class="jump-target" id="data-build-progress">Data Table: Module Build Progress - 6 Planned Operating Systems</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Build status</th><th>Modules</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Live, client-ready template (MeetingOS)</td><td class="num">1</td></tr>
+      <tr><td>In design (SocialOS, CFOS, PayrollOS, DeliveryOS, GrowthOS)</td><td class="num">5</td></tr>
+      <tr><td><strong>Total planned operating systems</strong></td><td class="num"><strong>6</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="jump-target" id="data-meetingos-week">Data Table: ComfortFlow HVAC (Demo) - MeetingOS Week in Numbers</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Metric</th><th>Week of Aug 3 - 9, 2026</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Client meetings captured</td><td class="num">6</td></tr>
+      <tr><td>Decisions logged</td><td class="num">11</td></tr>
+      <tr><td>Action items tracked</td><td class="num">10</td></tr>
+      <tr><td>Open loops aging past 5 days</td><td class="num">2</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="jump-target" id="data-pages-per-module">Data Table: Template Pages Shipped per Operating System - FreedomAIOS Library</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Operating system</th><th>Pages shipped</th><th>Pages planned at launch</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>MeetingOS - Client Meeting Notes and Follow-Ups</td><td class="num">6</td><td class="num">6</td><td><span class="badge badge-good">Live</span></td></tr>
+      <tr><td>SocialOS - Company Social Media Engine</td><td class="num">0</td><td class="num">4</td><td><span class="badge badge-warn">In design</span></td></tr>
+      <tr><td>CFOS - Cash Flow and Money Health</td><td class="num">0</td><td class="num">4</td><td><span class="badge badge-warn">In design</span></td></tr>
+      <tr><td>PayrollOS - Time Tracking and Payroll Runs</td><td class="num">0</td><td class="num">5</td><td><span class="badge badge-warn">In design</span></td></tr>
+      <tr><td>DeliveryOS - Project Tracking and Client Status Reports</td><td class="num">0</td><td class="num">5</td><td><span class="badge badge-warn">In design</span></td></tr>
+      <tr><td>GrowthOS - Sales Pipeline and Lead Follow-Up</td><td class="num">0</td><td class="num">4</td><td><span class="badge badge-warn">In design</span></td></tr>
+    </tbody>
+  </table>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="footer-brand">FreedomAIOS · Module Templates</p>
+    <p>Demonstration command center for the FreedomAIOS operating system library. ComfortFlow HVAC is a fictional demo client; all figures on this page are demo data.</p>
+  </div>
+</footer>
+
+</body>
+</html>

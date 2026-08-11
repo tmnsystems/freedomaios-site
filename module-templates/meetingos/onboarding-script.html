@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Client Onboarding Script - MeetingOS 30-Minute Walkthrough</title>
+<link rel="icon" href="../shared/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../shared/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../shared/assets/apple-touch-icon-180.png">
+<link rel="stylesheet" href="../../shared/theme.css">
+<script src="../../shared/theme.js"></script>
+<script src="../shared/charts.js"></script>
+<style>
+  /* Layout only. All colors from shared/theme.css variables. */
+  .module-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.72em;
+    margin: 0 0 8px;
+  }
+  .time-badge {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 0.68em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 4px;
+  }
+  .script-line {
+    background-color: var(--callout-bg);
+    border-left: 4px solid var(--callout-border);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-style: italic;
+  }
+  .script-line p { margin: 0.4em 0; }
+  .stage-note {
+    font-size: 0.82em;
+    color: var(--text-muted);
+  }
+  .stage-note strong { font-style: normal; }
+</style>
+<!-- Canonical base is https://freedomaios.com (future public home, not live yet). Per SITE-PACKAGE-STANDARD.md: per-page JSON-LD for search + AI comprehension. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://freedomaios.com/#organization",
+      "name": "FreedomAIOS",
+      "url": "https://freedomaios.com/",
+      "description": "FreedomAIOS builds AI operating systems for small businesses - audits, templates, and agent skills that turn AI into working business systems."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://freedomaios.com/#website",
+      "url": "https://freedomaios.com/",
+      "name": "FreedomAIOS",
+      "publisher": {
+        "@id": "https://freedomaios.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://freedomaios.com/module-templates/meetingos/onboarding-script.html#webpage",
+      "url": "https://freedomaios.com/module-templates/meetingos/onboarding-script.html",
+      "name": "New Client Onboarding Script - MeetingOS 30-Minute Walkthrough",
+      "description": "What the consultant says at delivery: a scripted 30-minute screen-share walkthrough of MeetingOS for the new client, with example client ComfortFlow HVAC (fictional).",
+      "isPartOf": {
+        "@id": "https://freedomaios.com/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <img class="brand-logo brand-logo-lg" src="../shared/assets/logo-transparent.png" alt="FreedomAIOS - Take The Road Less Traveled">
+    <h1>New Client Onboarding Script - The 30-Minute Walkthrough</h1>
+    <p class="tagline">What the consultant says at delivery. Scripted for a screen-share with the owner; italic blocks are said out loud, the rest is stage direction. Example client: ComfortFlow HVAC (fictional).</p>
+  </div>
+</header>
+
+<main class="page dense">
+
+  <nav class="module-nav">
+    <a href="../index.html">All Operating Systems</a>
+    <a href="dashboard.html">Client Meeting Dashboard</a>
+    <a href="config-guide.html">New Client Setup Guide</a>
+    <a href="maintenance-checklist.html">Monthly Maintenance Checklist</a>
+    <a href="roi-calculator.html">Savings &amp; ROI Calculator</a>
+    <a href="onboarding-script.html">New Client Onboarding Script</a>
+  </nav>
+
+  <div class="callout">
+    <p><strong>Before the call:</strong> at least three real meetings must already be processed and visible on the client's dashboard. Never onboard against an empty system - the first thing they see must be their own meeting, their own people, their own decisions. For ComfortFlow, the consultant waited until the Aug 3 Ops Huddle, the Aug 4 bid review, and the Aug 5 standup were all live.</p>
+  </div>
+
+  <!-- ============ WALKTHROUGH AT A GLANCE ============ -->
+  <h2>The 30-Minute Walkthrough at a Glance - MeetingOS Onboarding Call</h2>
+  <div class="chart-grid">
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-walkthrough-time">
+        <h3>Minutes per Walkthrough Segment - MeetingOS 30-Minute Onboarding Call</h3>
+        <p class="chart-sub">Six scripted segments totaling 30 minutes. The dashboard and money segments get the most time because they carry the sale.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart of minutes per segment in the 30-minute MeetingOS onboarding walkthrough" data-config='{"labels":["Promise","Dashboard","Email + rules","Money","Maintenance","Close"],"series":[{"name":"Minutes","values":[3,7,5,7,5,3]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ MIN 0-3 ============ -->
+  <div class="card card-accent">
+    <p class="time-badge">Minutes 0–3 · The promise</p>
+    <h3 class="mt-0">Open With Their Pain, Not Your Product</h3>
+    <div class="script-line">
+      <p>"Three weeks ago you told me the Rose Quarter bid almost went out with the wrong margin because the decision lived in Marcus's notebook. And that after your Monday huddle, Priya spends forty minutes writing up what six people already sat through. That ends today. From this morning forward, every meeting writes its own notes, and you read them over coffee instead of writing them at your desk."</p>
+    </div>
+    <p class="stage-note"><strong>Why this works:</strong> it names a real incident from the audit, in their language. No features yet. If they nod here, the rest of the call is a demo of something they already want.</p>
+  </div>
+
+  <!-- ============ MIN 3-10 ============ -->
+  <div class="card card-accent">
+    <p class="time-badge">Minutes 3–10 · The "here's what you'll see every morning" moment</p>
+    <h3 class="mt-0">Open the Client Meeting Dashboard. Then Stop Talking.</h3>
+    <p class="stage-note">Share your screen on <em>their</em> dashboard - real meetings, real names. Silence for five full seconds after it loads. Let them find their own meeting.</p>
+    <div class="script-line">
+      <p>"This is your Monday morning screen. Every meeting from last week is already here. There's your Ops Huddle - read the decisions. Did MeetingOS get them right?"</p>
+    </div>
+    <p class="stage-note"><strong>Wait for them to confirm out loud.</strong> The moment Dana says "yeah, that's exactly what we decided," the system is sold. Everything after is refinement.</p>
+    <div class="script-line">
+      <p>"Three things on every meeting: what was said, in plain English. What was decided - that's the part that used to live in notebooks. And who owes what by when. This box up top - the open loops - that's my favorite part. See the Airex credit memo? Eleven days old. MeetingOS will keep putting that in front of Marcus every Monday until it closes. Nothing quietly dies anymore."</p>
+    </div>
+  </div>
+
+  <!-- ============ MIN 10-15 ============ -->
+  <div class="card card-accent">
+    <p class="time-badge">Minutes 10–15 · The email + the rules</p>
+    <h3 class="mt-0">Show the Morning Email, Set the Two Rules</h3>
+    <div class="script-line">
+      <p>"You don't even have to visit the dashboard. Every meeting's notes land in your inbox about twenty minutes after the call ends - decisions, action items, done. The dashboard is where you go when you want the week at a glance."</p>
+      <p>"Two rules make this work. Rule one: <strong>run your meetings in the scheduled Zoom rooms.</strong> If a call happens in a personal meeting room we haven't registered, MeetingOS can't see it - tell me and I'll add it, takes a day. Rule two: <strong>when a note gets something wrong, reply to the email and say so.</strong> You are not reporting a bug - you are training your system. We fix the note and tune the template the same week."</p>
+    </div>
+    <p class="stage-note"><strong>Expectation setting, said plainly:</strong> notes arrive within about 40 minutes of meeting end (Zoom takes time to process the transcript - that wait is Zoom's, not ours); names of brand-new hires may be wrong for one meeting until we add them to the briefing file; MeetingOS captures what was <em>said</em> - if a decision is made in a hallway, it belongs in the next huddle, not in this system.</p>
+  </div>
+
+  <!-- ============ MIN 15-22 ============ -->
+  <div class="card card-accent">
+    <p class="time-badge">Minutes 15–22 · The money conversation</p>
+    <h3 class="mt-0">Anchor the Payback - Honest Numbers Only</h3>
+    <p class="stage-note">Open the ROI calculator <em>with their numbers already in it</em>. Walk the formula card top to bottom. Do not skip the 80% assumption - naming the discount is what makes the number believable.</p>
+    <div class="script-line">
+      <p>"Here's the math we ran together at the audit, and it's on this page so you can check me. Eight meetings a week, five people, fifteen minutes each on notes and chasing follow-ups - that's 43 hours a month your team spends writing down what already happened. We only claim 80% of it back, because you'll still read the notes. That's about 35 hours. At your blended payroll, $1,663 a month in reclaimed time, plus the hundred a month you were paying Otter. Call it $1,750 a month."</p>
+      <p>"MeetingOS cost $3,000 once. <strong>It pays for itself in about 52 days - call it seven and a half weeks.</strong> After that, the savings are yours every month you run this business, and the $150 a month keeps it tuned, watched, and fixed before you ever notice a problem. And Dana - the money is the small half. The big half is Monday mornings that start with decisions instead of detective work."</p>
+    </div>
+    <p class="stage-note"><strong>If they push on price:</strong> do not discount. Re-anchor on the verified number - "Expensive is continuing to pay $1,750 a month in wasted time and energy. This removes the waste; the fee is what's left over." Then stop talking.</p>
+  </div>
+
+  <!-- ============ MIN 22-27 ============ -->
+  <div class="card card-accent">
+    <p class="time-badge">Minutes 22–27 · What happens when it breaks</p>
+    <h3 class="mt-0">The Maintenance Promise, in One Breath</h3>
+    <div class="script-line">
+      <p>"You will never debug this. Every Monday we run a health check on your whole pipeline - transcripts, notes, deliveries, the lot. We read one of your notes every week against the raw transcript to make sure the quality stays where it was today. If the pipeline stops, we know before you do, and it's fixed or you have a workaround inside two business days. Once a quarter we tune your templates and hand you a one-page report on your meeting load. That's what the $150 covers - it's all written down, line by line, on the maintenance page I'm sending you."</p>
+    </div>
+  </div>
+
+  <!-- ============ MIN 27-30 ============ -->
+  <div class="card card-accent">
+    <p class="time-badge">Minutes 27–30 · Close</p>
+    <h3 class="mt-0">End on the Next Morning, Not the Contract</h3>
+    <div class="script-line">
+      <p>"You don't need to do anything differently tomorrow except one thing: when the notes email lands after your huddle, open it. That's it. I'll call you Friday - not to check on the system, to check on you. Deal?"</p>
+    </div>
+    <p class="stage-note"><strong>Then send the follow-up email within the hour:</strong> dashboard link, the two rules, the maintenance checklist link, and the payback number from the calculator. One screen, four things. The Friday call is on your calendar before you hang up.</p>
+  </div>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <h2>Consultant Cheat Sheet - Client Objections and Answers</h2>
+  <div class="card card-navy">
+    <table>
+      <thead>
+        <tr><th>If they say…</th><th>You say…</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"Can it record in-person meetings?"</td>
+          <td>"Not today - MeetingOS captures Zoom calls. Put any decision made in the truck or the hallway on the agenda of the next huddle and it's captured forever. A voice-notes add-on is on the roadmap; I'll quote it when it ships."</td>
+        </tr>
+        <tr>
+          <td>"Is our meeting data private?"</td>
+          <td>"Transcripts live in your own Zoom account and one folder we manage for you - the system's key card opens your folder and nothing else. No shared database, no other client's data anywhere near yours."</td>
+        </tr>
+        <tr>
+          <td>"What if Zoom changes something?"</td>
+          <td>"That's exactly what the monthly fee exists for. Zoom changed their API scopes twice this year - maintained clients didn't notice either time."</td>
+        </tr>
+        <tr>
+          <td>"Can my team edit the notes?"</td>
+          <td>"Better - reply with the correction and we fix the note <em>and</em> the system, so the same mistake never repeats. Editing one note fixes a meeting; correcting us fixes every future meeting."</td>
+        </tr>
+        <tr>
+          <td>"$150 a month forever?"</td>
+          <td>"For as long as it earns its keep. It saves you roughly $1,750 a month in money, time, and energy - the fee is under a tenth of that, and you can cancel any month it stops being true."</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ CHART SOURCE DATA ============ -->
+  <h2>Chart Source Data - MeetingOS 30-Minute Onboarding Call</h2>
+  <p class="text-small text-muted">The chart above links here. These are the exact numbers it draws.</p>
+
+  <h3 class="jump-target" id="data-walkthrough-time">Data Table: Minutes per Walkthrough Segment - MeetingOS 30-Minute Onboarding Call</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Segment</th><th>Minutes</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Minutes 0 - 3: The promise</td><td class="num">3</td><td>Open with their pain, not the product</td></tr>
+      <tr><td>Minutes 3 - 10: The dashboard</td><td class="num">7</td><td>Their own meetings on the morning screen</td></tr>
+      <tr><td>Minutes 10 - 15: Email and the two rules</td><td class="num">5</td><td>Delivery plus expectation setting</td></tr>
+      <tr><td>Minutes 15 - 22: The money conversation</td><td class="num">7</td><td>Payback anchored on honest numbers</td></tr>
+      <tr><td>Minutes 22 - 27: When it breaks</td><td class="num">5</td><td>The maintenance promise in one breath</td></tr>
+      <tr><td>Minutes 27 - 30: Close</td><td class="num">3</td><td>End on the next morning, not the contract</td></tr>
+      <tr><td><strong>Total</strong></td><td class="num"><strong>30</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="footer-brand">FreedomAIOS · MeetingOS</p>
+    <p>Consultant-facing delivery script. Payback figure computed from the ROI calculator's pre-filled scenario - recompute if the client's numbers differ, and never quote a number you didn't run. ComfortFlow HVAC is fictional.</p>
+  </div>
+</footer>
+
+</body>
+</html>

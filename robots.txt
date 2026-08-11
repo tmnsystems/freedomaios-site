@@ -1,0 +1,6 @@
+# FreedomAIOS - robots.txt
+# Canonical base: https://freedomaios.com (future public home - not live yet).
+User-agent: *
+Allow: /
+
+Sitemap: https://freedomaios.com/sitemap.xml

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Maintenance Checklist - MeetingOS ($150 per Month Plan)</title>
+<link rel="icon" href="../shared/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../shared/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../shared/assets/apple-touch-icon-180.png">
+<link rel="stylesheet" href="../../shared/theme.css">
+<script src="../../shared/theme.js"></script>
+<script src="../shared/charts.js"></script>
+<style>
+  /* Layout only. All colors from shared/theme.css variables. */
+  .module-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.72em;
+    margin: 0 0 8px;
+  }
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.88em;
+  }
+  .checklist li {
+    padding-left: 1.8em;
+    text-indent: -1.8em;
+    margin: 0.5em 0;
+  }
+  .checklist li::before {
+    content: "\2610\00a0\00a0";
+    font-family: var(--font-heading);
+    color: var(--gold);
+    font-weight: bold;
+  }
+  .cadence {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 0.68em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 4px;
+  }
+</style>
+<!-- Canonical base is https://freedomaios.com (future public home, not live yet). Per SITE-PACKAGE-STANDARD.md: per-page JSON-LD for search + AI comprehension. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://freedomaios.com/#organization",
+      "name": "FreedomAIOS",
+      "url": "https://freedomaios.com/",
+      "description": "FreedomAIOS builds AI operating systems for small businesses - audits, templates, and agent skills that turn AI into working business systems."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://freedomaios.com/#website",
+      "url": "https://freedomaios.com/",
+      "name": "FreedomAIOS",
+      "publisher": {
+        "@id": "https://freedomaios.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://freedomaios.com/module-templates/meetingos/maintenance-checklist.html#webpage",
+      "url": "https://freedomaios.com/module-templates/meetingos/maintenance-checklist.html",
+      "name": "Monthly Maintenance Checklist - MeetingOS ($150 per Month Plan)",
+      "description": "What the monthly MeetingOS fee actually buys, line by line - the document that makes recurring revenue concrete at delivery and renewal.",
+      "isPartOf": {
+        "@id": "https://freedomaios.com/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <img class="brand-logo brand-logo-lg" src="../shared/assets/logo-transparent.png" alt="FreedomAIOS - Take The Road Less Traveled">
+    <h1>Monthly Maintenance Checklist - MeetingOS, $150 per Month</h1>
+    <p class="tagline">What the monthly fee actually buys, line by line. This is the document that makes recurring revenue concrete - show it at delivery, reference it at renewal.</p>
+  </div>
+</header>
+
+<main class="page dense">
+
+  <nav class="module-nav">
+    <a href="../index.html">All Operating Systems</a>
+    <a href="dashboard.html">Client Meeting Dashboard</a>
+    <a href="config-guide.html">New Client Setup Guide</a>
+    <a href="maintenance-checklist.html">Monthly Maintenance Checklist</a>
+    <a href="roi-calculator.html">Savings &amp; ROI Calculator</a>
+    <a href="onboarding-script.html">New Client Onboarding Script</a>
+  </nav>
+
+  <div class="callout">
+    <p><strong>Why this page exists.</strong> MeetingOS runs quietly in the background - that is the point, and also the risk. Quiet systems look free to run. They are not. Transcripts fail to process, Zoom deprecates a scope, a new hire's name confuses the note writer. Without maintenance, the client is back to wasted money on missed follow-ups, wasted time re-reading raw transcripts, and wasted energy chasing what was decided. This checklist is the contract that prevents that slide.</p>
+  </div>
+
+  <!-- ============ MAINTENANCE AT A GLANCE ============ -->
+  <h2>ComfortFlow HVAC Maintenance at a Glance - July 2026</h2>
+  <div class="chart-grid">
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-maintenance-completion">
+        <h3>July 2026 Planned Maintenance Completed - ComfortFlow HVAC</h3>
+        <p class="chart-sub">4 weekly health checks, 4 note-quality samples, and the Q3 tune-up: every scheduled task for the month done.</p>
+        <div class="fchart" data-chart="donut" role="img" aria-label="Progress ring showing all 9 planned ComfortFlow HVAC maintenance tasks completed in July 2026" data-config='{"value":9,"total":9,"center":"100%","sub":"9 of 9 done","legend":["Completed (9)"],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-consultant-time">
+        <h3>Consultant Time per Week - ComfortFlow HVAC, July 2026</h3>
+        <p class="chart-sub">Hands-on maintenance minutes per week. Month total: about 2 hours 10 minutes for 26 meetings captured.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart of consultant maintenance minutes per week for ComfortFlow HVAC in July 2026, totaling about 2 hours 10 minutes" data-config='{"labels":["Jul 6","Jul 13","Jul 20","Jul 27"],"series":[{"name":"Minutes","values":[35,40,30,25]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ WEEKLY ============ -->
+  <div class="card card-accent">
+    <p class="cadence">Every Monday · ~20 min per client</p>
+    <h3 class="mt-0">Weekly MeetingOS Health Check</h3>
+    <ul class="checklist">
+      <li><strong>Fetch log review.</strong> Every scheduled meeting in the last 7 days produced a transcript. Any gap gets a same-day explanation: meeting cancelled, AI Companion toggled off, or a real fault.</li>
+      <li><strong>Delivery confirmation.</strong> Every transcript produced notes, and every note reached its destinations (email opened by at least one recipient, dashboard updated).</li>
+      <li><strong>Dedup state check.</strong> <code>state/.fetched_instances.json</code> is clean - no duplicates delivered, no instance fetched twice, no silent skips.</li>
+      <li><strong>Scheduler alive.</strong> Cron / launchd / agent jobs fired on schedule. A job that stopped firing is found this week, not when the client notices missing notes.</li>
+      <li><strong>Error sweep.</strong> Non-zero exits and 4xx/5xx responses in the logs investigated, not just counted.</li>
+    </ul>
+  </div>
+
+  <!-- ============ PIPELINE MONITORING ============ -->
+  <div class="card card-accent">
+    <p class="cadence">Continuous · automated with human review</p>
+    <h3 class="mt-0">Zoom Transcript Pipeline Monitoring</h3>
+    <ul class="checklist">
+      <li><strong>Failure alerts routed to us, not the client.</strong> A failed fetch notifies your consultancy first. The client hears about a problem with the fix already in motion - or never hears about it at all.</li>
+      <li><strong>Zoom-side changes tracked.</strong> Scope deprecations, AI Companion setting resets after Zoom updates, and OAuth app deactivation are the three ways this pipeline silently dies. All three are checked on every weekly pass.</li>
+      <li><strong>Processing-lag watch.</strong> Transcripts normally appear within ~40 minutes of meeting end. Anything older than 24 hours unfetched is treated as an incident, not a backlog item.</li>
+      <li><strong>New-meeting-series detection.</strong> A new recurring meeting appears in the client's Zoom account → we confirm whether it should be MeetingOS-managed and add it to the schedule and note-style map.</li>
+    </ul>
+  </div>
+
+  <!-- ============ NOTE QUALITY ============ -->
+  <div class="card card-accent">
+    <p class="cadence">Weekly sample · ~15 min per client</p>
+    <h3 class="mt-0">Weekly Note-Quality Sampling</h3>
+    <p>This is the taster on the line: a machine writes every note, a human spot-checks the plates before the week ships. Automation without evaluation is hoping.</p>
+    <ul class="checklist">
+      <li><strong>One note per client per week read in full</strong> against its source transcript - decisions correct, owners correct, dates correct, nothing invented.</li>
+      <li><strong>Name and role drift fixed.</strong> New hires, role changes, and nicknames get added to the client briefing file so notes attribute work to the right people.</li>
+      <li><strong>Client corrections folded back.</strong> When a client replies to a note with a correction, the note is fixed <em>and</em> the extraction rules are tuned so the same miss does not repeat.</li>
+      <li><strong>Style fit reviewed.</strong> If the client is skimming past summaries to the action items, we say so and switch that meeting series to a shorter style. The notes serve the reader, not the template.</li>
+    </ul>
+  </div>
+
+  <!-- ============ QUARTERLY ============ -->
+  <div class="card card-accent">
+    <p class="cadence">Quarterly · ~45 min per client</p>
+    <h3 class="mt-0">Quarterly Template Tune-Up</h3>
+    <ul class="checklist">
+      <li><strong>Note-template refresh.</strong> Section order, length, and tone re-tuned against three months of real usage and client corrections.</li>
+      <li><strong>Upstream improvements merged.</strong> When the MeetingOS master template improves (better extraction prompts, new delivery option, dashboard upgrades), maintained clients receive the upgrade - tested on their folder, not just copied over it.</li>
+      <li><strong>Open-loop audit.</strong> Recurring loops that never close get surfaced to the client by name - the dashboard can only remind; the tune-up asks why.</li>
+      <li><strong>Meeting-load report.</strong> Meetings per week, hours in meetings, and notes actually read - a one-page summary the owner can use to cut meetings, delivered with the tune-up.</li>
+      <li><strong>Credential rotation check.</strong> Zoom app credentials verified active; client secret rotated if the client's security policy calls for it.</li>
+    </ul>
+  </div>
+
+  <!-- ============ SLA ============ -->
+  <h2>Consultant Response-Time Commitments</h2>
+  <div class="card card-navy">
+    <table>
+      <thead>
+        <tr><th>Situation</th><th>Acknowledged</th><th>Fixed or workaround</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Pipeline down</strong> - meetings happening, no notes flowing</td>
+          <td>Within 1 business day</td>
+          <td>Within 2 business days</td>
+        </tr>
+        <tr>
+          <td><strong>Wrong content</strong> - a note misattributes a decision or owner</td>
+          <td>Within 1 business day</td>
+          <td>Corrected note re-sent within 2 business days; template tuned same week</td>
+        </tr>
+        <tr>
+          <td><strong>Change request</strong> - new meeting series, new recipient, style switch</td>
+          <td>Within 2 business days</td>
+          <td>Live within 5 business days</td>
+        </tr>
+        <tr>
+          <td><strong>Questions</strong> - "how do I read this dashboard?"</td>
+          <td>Within 2 business days</td>
+          <td>Answered directly - by your consultant, not a ticket queue</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ NOT COVERED ============ -->
+  <h2>What the Monthly Fee Does Not Cover</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Zoom subscription and AI Companion</strong> - the client's own paid Zoom plan. MeetingOS uses what they already pay for.</li>
+      <li><strong>New modules.</strong> MeetingOS covers meetings. When the client wants invoices chased or payroll summarized, that is a new module build - quoted separately.</li>
+      <li><strong>Major platform migrations</strong> - e.g. the client moves from Zoom to Teams. Quoted as a small project, typically half a day.</li>
+    </ul>
+  </div>
+
+  <!-- ============ EXAMPLE LOG ============ -->
+  <h2>A Real Maintenance Month - ComfortFlow HVAC, July 2026</h2>
+  <div class="scenario-card">
+    <p class="scenario-company">ComfortFlow HVAC - Maintenance Log, July 2026</p>
+    <p class="scenario-context">Fictional example. Portland, OR · 12 people · maintained since June 2026 at $150/month.</p>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Event</th><th>Action</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mon, Jul 6</td>
+          <td>Weekly health check: 6 meetings, 6 transcripts, 6 notes delivered</td>
+          <td><span class="status-good">Clean pass.</span> No action needed.</td>
+        </tr>
+        <tr>
+          <td>Thu, Jul 9</td>
+          <td>Client reply: Ops Huddle note credited "Marcus" for a decision Dana made</td>
+          <td>Corrected note re-sent same day. Briefing file updated to flag that Dana overrules on supplier decisions.</td>
+        </tr>
+        <tr>
+          <td>Mon, Jul 13</td>
+          <td>Health check: Friday Sales Pipeline transcript missing</td>
+          <td>Traced to host ending the Zoom call from a personal meeting room, not the scheduled series. Backfilled the transcript manually; added the personal-room ID to the watch list.</td>
+        </tr>
+        <tr>
+          <td>Mon, Jul 20</td>
+          <td>Note-quality sample: Install Crew Standup, Jul 15</td>
+          <td><span class="status-good">Pass.</span> Noted that the crew skimmed straight to action items - flagged for style review.</td>
+        </tr>
+        <tr>
+          <td>Wed, Jul 22</td>
+          <td>Change request: add Jesse's new standup series (started Jul 15)</td>
+          <td>Live Jul 24 - within the 5-business-day commitment. Series set to Action Items Only style per the Jul 20 finding.</td>
+        </tr>
+        <tr>
+          <td>Mon, Jul 27</td>
+          <td>Quarterly tune-up (Q3)</td>
+          <td>Standup series switched to Action Items Only. Meeting-load report delivered: 6.5 meetings/week, notes opened within 2 hours on average. One open loop (Airex credit memo) escalated to Dana by name.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="mb-0"><strong>Consultant time spent that month: about 2 hours 10 minutes.</strong> Client-visible result: 26 meetings captured, zero missed notes, one wrong attribution fixed before it mattered, and a template that got shorter because the crew told us how they actually read.</p>
+  </div>
+
+  <!-- ============ CHART SOURCE DATA ============ -->
+  <h2>Chart Source Data - ComfortFlow HVAC Maintenance, July 2026</h2>
+  <p class="text-small text-muted">Every chart above links here. These are the exact numbers each chart draws.</p>
+
+  <h3 class="jump-target" id="data-maintenance-completion">Data Table: July 2026 Planned Maintenance Completed - ComfortFlow HVAC</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Scheduled task</th><th>Planned</th><th>Completed</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Weekly health checks (Mondays: Jul 6, 13, 20, 27)</td><td class="num">4</td><td class="num">4</td></tr>
+      <tr><td>Weekly note-quality samples (one note read per week)</td><td class="num">4</td><td class="num">4</td></tr>
+      <tr><td>Quarterly template tune-up (Q3, delivered Jul 27)</td><td class="num">1</td><td class="num">1</td></tr>
+      <tr><td><strong>Total</strong></td><td class="num"><strong>9</strong></td><td class="num"><strong>9</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="jump-target" id="data-consultant-time">Data Table: Consultant Time per Week - ComfortFlow HVAC, July 2026</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Week of</th><th>Hands-on minutes</th><th>What filled the time</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Jul 6</td><td class="num">35</td><td>Health check plus the Jul 9 attribution correction</td></tr>
+      <tr><td>Jul 13</td><td class="num">40</td><td>Health check plus the personal-room transcript backfill</td></tr>
+      <tr><td>Jul 20</td><td class="num">30</td><td>Health check, note sample, Jesse's new standup series request</td></tr>
+      <tr><td>Jul 27</td><td class="num">25</td><td>Health check inside the Q3 tune-up pass</td></tr>
+      <tr><td><strong>Month total</strong></td><td class="num"><strong>130</strong></td><td>About 2 hours 10 minutes</td></tr>
+    </tbody>
+  </table>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="footer-brand">FreedomAIOS · MeetingOS</p>
+    <p>Show this page at delivery and again at every renewal conversation. ComfortFlow HVAC is a fictional example client.</p>
+  </div>
+</footer>
+
+</body>
+</html>

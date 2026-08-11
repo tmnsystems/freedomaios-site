@@ -1,0 +1,1015 @@
+/* ============================================================
+   FreedomAIOS Centralized Theme — theme.css
+   STANDING RULE: All pages reference this file. No inline styles.
+   Light theme is DEFAULT. Dark theme via [data-theme="dark"].
+   Status colors are SINGLE values — no light/dark variants:
+     - Warning yellow: #B8860B (always)
+     - Critical red:   #CC0000 (always)
+     - Healthy green:  #2E7D32 (always)
+   ============================================================ */
+
+/* ---------- LIGHT THEME (DEFAULT) ---------- */
+:root {
+  /* Brand palette */
+  --navy:        #1B3A5C;
+  --cream:       #FAFAF8;
+  --gold:        #D9A441;
+
+  /* Status colors — ONE value each, used in both themes */
+  --status-good: #2E7D32;
+  --status-warn: #B8860B;
+  --status-bad:  #CC0000;
+
+  /* Surfaces and text */
+  --bg:          #FAFAF8;
+  --surface:     #FFFFFF;
+  --surface-alt: #F3F1EA;
+  --text:        #1F2430;
+  --text-muted:  #5A6270;
+  --heading:     #1B3A5C;
+
+  /* Lines and shadows */
+  --border:      #DDD8CC;
+  --border-strong: #B8B2A2;
+  --shadow:      0 2px 10px rgba(27, 58, 92, 0.10);
+  --shadow-lg:   0 6px 24px rgba(27, 58, 92, 0.16);
+
+  /* Component accents */
+  --callout-bg:     #FDF6E3;
+  --callout-border: #D9A441;
+  --masthead-bg:    #1B3A5C;
+  --masthead-text:  #FAFAF8;
+  --footer-bg:      #EFECE4;
+  --link:           #1B3A5C;
+  --link-hover:     #D9A441;
+  --toggle-bg:      #FFFFFF;
+  --toggle-border:  #1B3A5C;
+  --toggle-text:    #1B3A5C;
+
+  /* Status tinted surfaces (backgrounds only; text stays status color) */
+  --good-bg: #E8F2E9;
+  --warn-bg: #F6EFDD;
+  --bad-bg:  #F7E4E4;
+
+  /* Typography */
+  --font-body:    Georgia, 'Times New Roman', serif;
+  --font-heading: Arial, Helvetica, sans-serif;
+  --body-size:    20px;
+  --line-height:  1.6;
+
+  /* Layout */
+  --max-width: 720px;
+  --radius:    8px;
+  --radius-sm: 5px;
+}
+
+/* ---------- DARK THEME ---------- */
+[data-theme="dark"] {
+  /* Brand palette unchanged */
+  --navy:        #1B3A5C;
+  --cream:       #FAFAF8;
+  --gold:        #D9A441;
+
+  /* Status colors IDENTICAL to light theme — standing rule */
+  --status-good: #2E7D32;
+  --status-warn: #B8860B;
+  --status-bad:  #CC0000;
+
+  /* Surfaces and text */
+  --bg:          #0F1B2A; /* matches dark masthead/nav so page body sits on the same deep navy */
+  --surface:     #1C2530;
+  --surface-alt: #232E3B;
+  --text:        #E8E6E0;
+  --text-muted:  #A9B0BC;
+  --heading:     #D9A441;
+
+  --border:        #33404F;
+  --border-strong: #4A586A;
+  --shadow:    0 2px 10px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 6px 24px rgba(0, 0, 0, 0.55);
+
+  --callout-bg:     #2A2A1C;
+  --callout-border: #D9A441;
+  --masthead-bg:    #0F1B2A;
+  --masthead-text:  #FAFAF8;
+  --footer-bg:      #171F29;
+  --link:           #D9A441;
+  --link-hover:     #E8E6E0;
+  --toggle-bg:      #1C2530;
+  --toggle-border:  #D9A441;
+  --toggle-text:    #D9A441;
+
+  /* Dark-theme status tints — deep enough that the single
+     status colors remain legible on top */
+  --good-bg: #16301A;
+  --warn-bg: #35290E;
+  --bad-bg:  #380F0F;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--line-height);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+main,
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--heading);
+  line-height: 1.25;
+  margin: 1.6em 0 0.5em;
+}
+
+h1 { font-size: 1.9em; }
+h2 { font-size: 1.45em; border-bottom: 2px solid var(--gold); padding-bottom: 6px; }
+h3 { font-size: 1.15em; }
+h4 { font-size: 1.0em; }
+
+p { margin: 0.9em 0; }
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+a:hover, a:focus { color: var(--link-hover); }
+
+strong { color: var(--heading); }
+[data-theme="dark"] strong { color: var(--cream); }
+
+ul, ol { padding-left: 1.4em; }
+li { margin: 0.4em 0; }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5em 0;
+}
+
+/* ============================================================
+   MASTHEAD
+   ============================================================ */
+
+.masthead {
+  background-color: var(--masthead-bg);
+  color: var(--masthead-text);
+  padding: 28px 20px 24px;
+  border-bottom: 4px solid var(--gold);
+}
+
+.masthead-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.masthead .brand-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  margin: 0 0 10px;
+}
+
+.masthead .site-name {
+  font-family: var(--font-heading);
+  font-size: 0.85em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+
+.masthead h1 {
+  color: var(--masthead-text);
+  margin: 0 0 6px;
+  font-size: 1.75em;
+}
+
+.masthead .tagline {
+  color: var(--cream);
+  opacity: 0.85;
+  font-style: italic;
+  margin: 0;
+  font-size: 0.95em;
+}
+
+/* ============================================================
+   THEME TOGGLE BUTTON (injected by theme.js)
+   ============================================================ */
+
+.theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--toggle-text);
+  background-color: var(--toggle-bg);
+  border: 2px solid var(--toggle-border);
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background-color 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover { transform: translateY(-1px); }
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.theme-toggle .theme-toggle-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+
+.card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.card h3:first-child,
+.card h4:first-child { margin-top: 0; }
+
+.card-accent {
+  border-top: 4px solid var(--gold);
+}
+
+.card-navy {
+  border-top: 4px solid var(--navy);
+}
+
+/* Scenario card — the named, built-out story blocks */
+.scenario-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: var(--shadow);
+}
+
+.scenario-card .scenario-company {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--heading);
+  margin: 0 0 4px;
+}
+
+.scenario-card .scenario-context {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0 0 14px;
+}
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1.5px solid currentColor;
+  line-height: 1.4;
+}
+
+.badge-good { color: var(--status-good); background-color: var(--good-bg); }
+.badge-warn { color: var(--status-warn); background-color: var(--warn-bg); }
+.badge-bad  { color: var(--status-bad);  background-color: var(--bad-bg); }
+.badge-navy { color: var(--navy); background-color: var(--surface-alt); }
+[data-theme="dark"] .badge-navy { color: var(--gold); }
+
+/* Inline status text */
+.status-good { color: var(--status-good); font-weight: bold; }
+.status-warn { color: var(--status-warn); font-weight: bold; }
+.status-bad  { color: var(--status-bad);  font-weight: bold; }
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.85em;
+  background-color: var(--surface);
+}
+
+caption {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  color: var(--heading);
+  text-align: left;
+  padding-bottom: 8px;
+}
+
+th, td {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  font-family: var(--font-heading);
+  background-color: var(--navy);
+  color: var(--cream);
+  border-color: var(--navy);
+}
+
+[data-theme="dark"] thead th {
+  background-color: var(--surface-alt);
+  color: var(--gold);
+  border-color: var(--border-strong);
+}
+
+tbody tr:nth-child(even) { background-color: var(--surface-alt); }
+
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+td .status-good, td .status-warn, td .status-bad { white-space: nowrap; }
+
+/* Anchor table (scorecard anchors) */
+.anchor-table td:first-child {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  white-space: nowrap;
+  width: 90px;
+  text-align: center;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 0.9em;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+              background-color 0.2s ease;
+}
+
+.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); text-decoration: none; }
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.btn-primary {
+  background-color: var(--navy);
+  color: var(--cream);
+  border-color: var(--navy);
+}
+.btn-primary:hover { color: var(--cream); background-color: #15304D; }
+[data-theme="dark"] .btn-primary {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  color: #12181F;
+}
+[data-theme="dark"] .btn-primary:hover { color: #12181F; background-color: #D9B53A; }
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--link);
+  border-color: var(--navy);
+}
+[data-theme="dark"] .btn-secondary {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.btn-lg { font-size: 1em; padding: 18px 36px; }
+
+.btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+/* ============================================================
+   CALLOUTS
+   ============================================================ */
+
+.callout {
+  background-color: var(--callout-bg);
+  border-left: 5px solid var(--callout-border);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 18px 22px;
+  margin: 22px 0;
+}
+
+.callout p:first-child { margin-top: 0; }
+.callout p:last-child  { margin-bottom: 0; }
+
+.callout-bad {
+  border-left-color: var(--status-bad);
+  background-color: var(--bad-bg);
+}
+
+.callout-good {
+  border-left-color: var(--status-good);
+  background-color: var(--good-bg);
+}
+
+.callout-warn {
+  border-left-color: var(--status-warn);
+  background-color: var(--warn-bg);
+}
+
+/* Pull-quote style for scenario numbers */
+.big-number {
+  font-family: var(--font-heading);
+  font-size: 2.4em;
+  font-weight: bold;
+  color: var(--heading);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.big-number-label {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  margin: 4px 0 0;
+}
+
+/* ============================================================
+   FORMULA CARDS (leak math)
+   ============================================================ */
+
+.formula-card {
+  background-color: var(--surface-alt);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 18px 0;
+  font-family: var(--font-heading);
+  font-size: 0.85em;
+}
+
+.formula-card .formula-title {
+  font-weight: bold;
+  color: var(--heading);
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9em;
+}
+
+.formula-card .formula-line {
+  margin: 6px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.formula-card .formula-result {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-weight: bold;
+  color: var(--status-bad);
+}
+
+.formula-card .formula-result.good { color: var(--status-good); }
+
+/* ============================================================
+   MODULE CARDS
+   ============================================================ */
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.module-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.module-card h3 {
+  margin-top: 0;
+  font-size: 1.05em;
+}
+
+.module-card p {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin: 8px 0 0;
+}
+
+/* ============================================================
+   LEGEND BARS (score visualization)
+   Width comes from data-score attribute — no inline styles.
+   ============================================================ */
+
+.legend-bar {
+  margin: 14px 0;
+}
+
+.legend-bar .legend-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-heading);
+  font-size: 0.8em;
+  margin-bottom: 4px;
+}
+
+.legend-bar .legend-bar-score { font-weight: bold; }
+
+.legend-bar-track {
+  height: 14px;
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.legend-bar-fill {
+  height: 100%;
+  border-radius: 7px 0 0 7px;
+  background-color: var(--status-good);
+}
+
+.legend-bar-fill[data-score="1"] { width: 20%;  background-color: var(--status-bad); }
+.legend-bar-fill[data-score="2"] { width: 40%;  background-color: var(--status-bad); }
+.legend-bar-fill[data-score="3"] { width: 60%;  background-color: var(--status-warn); }
+.legend-bar-fill[data-score="4"] { width: 80%;  background-color: var(--status-good); }
+.legend-bar-fill[data-score="5"] { width: 100%; background-color: var(--status-good); }
+
+/* Score color classes for numeric labels */
+.score-1, .score-2 { color: var(--status-bad); }
+.score-3 { color: var(--status-warn); }
+.score-4, .score-5 { color: var(--status-good); }
+
+/* ============================================================
+   TIER GRID (offer tiers)
+   ============================================================ */
+
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.tier-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.tier-card.tier-featured {
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.tier-card .tier-name {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8em;
+  color: var(--text-muted);
+  margin: 0 0 6px;
+}
+
+.tier-card .tier-price {
+  font-family: var(--font-heading);
+  font-size: 1.9em;
+  font-weight: bold;
+  color: var(--heading);
+  margin: 0;
+}
+
+.tier-card .tier-desc {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  flex-grow: 1;
+  margin: 10px 0 16px;
+}
+
+.tier-card .tier-flag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--gold);
+  color: #12181F;
+  font-family: var(--font-heading);
+  font-size: 0.62em;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 10px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer,
+.site-footer {
+  background-color: var(--footer-bg);
+  border-top: 3px solid var(--gold);
+  padding: 28px 20px;
+  margin-top: 48px;
+}
+
+.site-footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  font-size: 0.78em;
+  color: var(--text-muted);
+}
+
+.site-footer p { margin: 0.4em 0; }
+
+.site-footer .footer-brand {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  color: var(--heading);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.95em;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+
+.text-muted { color: var(--text-muted); }
+.text-small { font-size: 0.82em; }
+.text-center { text-align: center; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+.divider-gold {
+  border: none;
+  border-top: 3px solid var(--gold);
+  width: 80px;
+  margin: 32px auto;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 640px) {
+  :root { --body-size: 18px; }
+
+  main, .page { padding: 24px 16px 48px; }
+
+  .module-grid { grid-template-columns: repeat(2, 1fr); }
+  .tier-grid   { grid-template-columns: 1fr; }
+
+  .btn-row { flex-direction: column; }
+  .btn-row .btn { width: 100%; }
+
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .masthead { padding: 22px 16px 18px; }
+
+  table { font-size: 0.78em; display: block; overflow-x: auto; }
+
+  .big-number { font-size: 2em; }
+}
+
+@media (max-width: 400px) {
+  .theme-toggle .theme-toggle-label { display: none; }
+}
+
+/* ============================================================
+   PRINT STYLES
+   Print always renders the LIGHT theme with visible status colors.
+   ============================================================ */
+
+@media print {
+  :root, [data-theme="dark"] {
+    --bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface-alt: #F3F1EA;
+    --text: #1F2430;
+    --text-muted: #5A6270;
+    --heading: #1B3A5C;
+    --border: #CCC7BA;
+    --callout-bg: #FDF6E3;
+    --masthead-bg: #1B3A5C;
+    --footer-bg: #FFFFFF;
+    --link: #1B3A5C;
+    --good-bg: #E8F2E9;
+    --warn-bg: #F6EFDD;
+    --bad-bg:  #F7E4E4;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body { font-size: 12pt; background: #FFFFFF; }
+
+  .theme-toggle, .btn-row, .site-footer nav { display: none !important; }
+
+  .card, .scenario-card, .module-card, .tier-card, .callout, .formula-card {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  a { text-decoration: none; color: var(--text); }
+
+  .masthead { border-bottom: 2pt solid var(--gold); }
+}
+
+/* ============================================================
+   BRAND LOCKUP (logo + site name in mastheads)
+   ============================================================ */
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 8px;
+}
+
+.brand-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.brand-lockup .site-name { margin: 0; }
+
+/* ============================================================
+   WIDE LAYOUT (dashboard pages)
+   Usage: <body class="layout-wide">
+   ============================================================ */
+
+body.layout-wide { --max-width: 1060px; }
+
+/* ============================================================
+   CHART COMPONENTS (rendered by module-templates/shared/charts.js)
+   Colors come from theme variables only — no inline hex values.
+   Series order: amber, navy, status green, status red.
+   ============================================================ */
+
+:root {
+  --chart-1: #D9A441;  /* amber accent */
+  --chart-2: #1B3A5C;  /* navy */
+}
+
+[data-theme="dark"] {
+  --chart-1: #D9A441;  /* amber holds on dark surfaces */
+  --chart-2: #7FA3C7;  /* navy lifted for contrast on dark surfaces */
+}
+
+.fchart { width: 100%; margin: 10px 0 4px; }
+.fchart svg { display: block; width: 100%; height: auto; }
+
+.fchart-grid { stroke: var(--border); stroke-width: 1; }
+.fchart-axis { stroke: var(--border-strong); stroke-width: 1.5; }
+.fchart-text { fill: var(--text-muted); font-family: var(--font-heading); font-size: 12px; }
+.fchart-value { fill: var(--heading); font-family: var(--font-heading); font-size: 12px; font-weight: bold; }
+
+.fchart-series-1 { fill: var(--chart-1); stroke: var(--chart-1); }
+.fchart-series-2 { fill: var(--chart-2); stroke: var(--chart-2); }
+.fchart-series-3 { fill: var(--status-good); stroke: var(--status-good); }
+.fchart-series-4 { fill: var(--status-bad); stroke: var(--status-bad); }
+
+/* Overrides below come after the series rules so they win */
+.fchart-line { fill: none; stroke-width: 2.5; }
+.fchart-area { stroke: none; fill-opacity: 0.12; }
+.fchart-point { stroke: var(--surface); stroke-width: 2; }
+.fchart-donut-track { fill: none; stroke: var(--surface-alt); }
+.fchart-donut-seg { fill: none; }
+.fchart-center-big { fill: var(--heading); font-family: var(--font-heading); font-size: 34px; font-weight: bold; }
+.fchart-center-sub { fill: var(--text-muted); font-family: var(--font-heading); font-size: 12px; }
+
+.fchart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-family: var(--font-heading);
+  font-size: 0.72em;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.fchart-legend .swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+.swatch.fchart-series-1 { background-color: var(--chart-1); }
+.swatch.fchart-series-2 { background-color: var(--chart-2); }
+.swatch.fchart-series-3 { background-color: var(--status-good); }
+.swatch.fchart-series-4 { background-color: var(--status-bad); }
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.chart-grid .card { margin: 0; }
+
+@media (max-width: 1000px) {
+  .chart-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Big stat number with delta — pairs with .stat-card / .big-number */
+.stat-delta {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+/* Placeholder module card (template not built yet) */
+.module-card-soon { border-top-color: var(--border-strong); }
+
+.module-card .module-links {
+  font-family: var(--font-heading);
+  font-size: 0.78em;
+  margin-top: 12px;
+  line-height: 1.9;
+}
+
+/* ============================================================
+   DENSE DASHBOARD LAYER (module-templates rework, Aug 2026)
+   Scoped additions only. Existing shared rules above are
+   untouched so ghl-blocks, docs, and opt-in pages render as
+   before. .module-grid and .chart-grid are used solely by the
+   module-templates pages (verified by repo-wide grep).
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+
+/* Four-across grid: desktop 4, tablet/mobile 2 */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.grid-4 .card { margin: 0; }
+
+@media (max-width: 1000px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .module-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Compact card padding for cards inside dense grids */
+.card-compact { padding: 14px 16px; margin: 0; }
+
+.card-compact h3 { font-size: 1.0em; }
+
+/* Module cards tighten only inside .module-grid, so the
+   ghl-blocks landing page (its own .modules-grid) is unaffected */
+.module-grid .module-card { padding: 14px 16px; }
+.module-grid .module-card h3 { font-size: 0.92em; }
+.module-grid .module-card p { font-size: 0.78em; margin: 6px 0 0; }
+.module-grid .module-card .module-links { font-size: 0.72em; margin-top: 8px; line-height: 1.7; }
+
+/* Slimmer section spacing on pages that opt in via .dense */
+.page.dense h2 { margin: 1.15em 0 0.45em; }
+.page.dense .card { margin: 12px 0; }
+
+/* Larger masthead lockup: the PNG tile already contains the
+   FREEDOM AIOS wordmark and tagline, so no text sits beside it */
+.masthead .brand-logo-lg {
+  height: 72px;
+  width: auto;
+  margin: 0 0 12px;
+}
+
+@media (max-width: 640px) {
+  .masthead .brand-logo-lg { height: 60px; }
+}
+
+/* Clickable chart cards: the whole card body is an anchor to
+   its data table further down the page */
+.chart-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.chart-link:hover { text-decoration: none; color: inherit; }
+.chart-link:hover h3 { color: var(--link-hover); }
+
+.chart-link:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.chart-cta {
+  font-family: var(--font-heading);
+  font-size: 0.72em;
+  font-weight: bold;
+  color: var(--link);
+  margin: 6px 0 0;
+}
+
+.chart-link:hover .chart-cta,
+.chart-link:focus-visible .chart-cta {
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+}
+
+/* Compact chart geometry (pairs with "compact": true in charts.js) */
+.fchart-compact .fchart-text { font-size: 10px; }
+.fchart-compact .fchart-value { font-size: 10px; }
+.fchart-compact .fchart-center-big { font-size: 24px; }
+.fchart-compact .fchart-center-sub { font-size: 10px; }
+
+/* Data tables behind every chart */
+.jump-target { scroll-margin-top: 18px; }
+
+.table-compact { font-size: 0.78em; margin: 8px 0 20px; }
+.table-compact th, .table-compact td { padding: 6px 10px; }
+
+/* Chart card title/subtitle (shared by all chart-bearing template pages) */
+.chart-card h3 { margin-top: 0; }
+
+.chart-card .chart-sub {
+  font-size: 0.72em;
+  color: var(--text-muted);
+  margin: 2px 0 4px;
+}

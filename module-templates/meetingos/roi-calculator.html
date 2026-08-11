@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savings &amp; ROI Calculator - MeetingOS, ComfortFlow HVAC Scenario</title>
+<link rel="icon" href="../shared/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../shared/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../shared/assets/apple-touch-icon-180.png">
+<link rel="stylesheet" href="../../shared/theme.css">
+<script src="../../shared/theme.js"></script>
+<script src="../shared/charts.js"></script>
+<style>
+  /* Layout only. All colors from shared/theme.css variables. */
+  .module-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.72em;
+    margin: 0 0 8px;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .calc-field label {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 0.78em;
+    color: var(--heading);
+    margin-bottom: 6px;
+  }
+  .calc-field input {
+    width: 100%;
+    font-family: var(--font-heading);
+    font-size: 1em;
+    padding: 12px 14px;
+    color: var(--text);
+    background-color: var(--surface);
+    border: 2px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+  }
+  .calc-field input:focus {
+    outline: 3px solid var(--gold);
+    outline-offset: 1px;
+    border-color: var(--gold);
+  }
+  .calc-field .field-hint {
+    font-size: 0.68em;
+    color: var(--text-muted);
+    margin: 5px 0 0;
+  }
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .result-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 12px 12px;
+    box-shadow: var(--shadow);
+  }
+  .result-card .big-number { font-size: 1.55em; }
+  @media (max-width: 640px) {
+    .calc-grid { grid-template-columns: 1fr; }
+    .result-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+<!-- Canonical base is https://freedomaios.com (future public home, not live yet). Per SITE-PACKAGE-STANDARD.md: per-page JSON-LD for search + AI comprehension. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://freedomaios.com/#organization",
+      "name": "FreedomAIOS",
+      "url": "https://freedomaios.com/",
+      "description": "FreedomAIOS builds AI operating systems for small businesses - audits, templates, and agent skills that turn AI into working business systems."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://freedomaios.com/#website",
+      "url": "https://freedomaios.com/",
+      "name": "FreedomAIOS",
+      "publisher": {
+        "@id": "https://freedomaios.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://freedomaios.com/module-templates/meetingos/roi-calculator.html#webpage",
+      "url": "https://freedomaios.com/module-templates/meetingos/roi-calculator.html",
+      "name": "Savings & ROI Calculator - MeetingOS, ComfortFlow HVAC Scenario",
+      "description": "What meeting notes and follow-ups cost this business today - in money, time, and energy - and how fast MeetingOS pays it back.",
+      "isPartOf": {
+        "@id": "https://freedomaios.com/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <img class="brand-logo brand-logo-lg" src="../shared/assets/logo-transparent.png" alt="FreedomAIOS - Take The Road Less Traveled">
+    <h1>Savings &amp; ROI Calculator - MeetingOS</h1>
+    <p class="tagline">What meeting notes and follow-ups cost this business today - in money, time, and energy - and how fast MeetingOS pays it back.</p>
+  </div>
+</header>
+
+<main class="page dense">
+
+  <nav class="module-nav">
+    <a href="../index.html">All Operating Systems</a>
+    <a href="dashboard.html">Client Meeting Dashboard</a>
+    <a href="config-guide.html">New Client Setup Guide</a>
+    <a href="maintenance-checklist.html">Monthly Maintenance Checklist</a>
+    <a href="roi-calculator.html">Savings &amp; ROI Calculator</a>
+    <a href="onboarding-script.html">New Client Onboarding Script</a>
+  </nav>
+
+  <div class="scenario-card">
+    <p class="scenario-company">Pre-filled scenario: ComfortFlow HVAC</p>
+    <p class="scenario-context">Fictional example - Portland, OR · 12 people · 8 Zoom meetings a week across ops, install, sales, and safety. Change any number; everything recalculates live.</p>
+  </div>
+
+  <!-- ============ SAVINGS MIX AT A GLANCE ============ -->
+  <h2>The Pre-filled Scenario at a Glance - ComfortFlow HVAC</h2>
+  <div class="chart-grid">
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-savings-mix">
+        <h3>Where the Monthly Savings Come From - ComfortFlow HVAC (Pre-filled Scenario)</h3>
+        <p class="chart-sub">The $1,763 per month split into its two sources. This chart shows the pre-filled scenario; edit the inputs below and the live result cards recompute.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart splitting the 1,763 dollars of monthly savings into 1,663 dollars of reclaimed time and 100 dollars of replaced tool spend" data-config='{"labels":["Reclaimed time","Replaced tools"],"series":[{"name":"Dollars per month","values":[1663,100]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ INPUTS ============ -->
+  <div class="card card-accent">
+    <h3 class="mt-0">ComfortFlow HVAC's Numbers (Edit Freely)</h3>
+    <div class="calc-grid">
+      <div class="calc-field">
+        <label for="in-meetings">Meetings per week</label>
+        <input type="number" id="in-meetings" min="0" step="1" value="8">
+        <p class="field-hint">Recurring + ad-hoc calls worth capturing. ComfortFlow runs 6 recurring, ~2 ad-hoc.</p>
+      </div>
+      <div class="calc-field">
+        <label for="in-attendees">Attendees per meeting</label>
+        <input type="number" id="in-attendees" min="1" step="1" value="5">
+        <p class="field-hint">People in the room who each keep their own notes today.</p>
+      </div>
+      <div class="calc-field">
+        <label for="in-hourly">Average hourly cost per attendee ($)</label>
+        <input type="number" id="in-hourly" min="0" step="1" value="48">
+        <p class="field-hint">Blended: office manager ~$28, owner ~$85, field leads ~$40. Use their real payroll numbers.</p>
+      </div>
+      <div class="calc-field">
+        <label for="in-minutes">Minutes on notes + follow-ups, per attendee, per meeting</label>
+        <input type="number" id="in-minutes" min="0" step="1" value="15">
+        <p class="field-hint">In-meeting scribbling + writing up + chasing "what did we decide?" afterwards.</p>
+      </div>
+      <div class="calc-field">
+        <label for="in-tool">Existing AI-notes tool spend ($ / month)</label>
+        <input type="number" id="in-tool" min="0" step="10" value="100">
+        <p class="field-hint">MeetingOS replaces it. ComfortFlow pays for 5 Otter.ai Business seats at $20 each.</p>
+      </div>
+      <div class="calc-field">
+        <label for="in-price">MeetingOS build price ($, one-time)</label>
+        <input type="number" id="in-price" min="0" step="100" value="3000">
+        <p class="field-hint">Standard module pricing: $3,000–$5,000. Half up front, half on delivery. Maintenance is $150/mo on top.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ OUTPUTS ============ -->
+  <h2>What MeetingOS Returns Each Month</h2>
+  <div class="result-grid">
+    <div class="result-card">
+      <p class="big-number" id="out-hours">34.6</p>
+      <p class="big-number-label">Hours saved per month<br>(80% of note time recovered)</p>
+    </div>
+    <div class="result-card">
+      <p class="big-number" id="out-dollars">$1,763</p>
+      <p class="big-number-label">Dollars saved per month<br>(time + replaced tools)</p>
+    </div>
+    <div class="result-card">
+      <p class="big-number" id="out-payback">52 days</p>
+      <p class="big-number-label">Payback period<br>on the one-time build price</p>
+    </div>
+  </div>
+
+  <div class="formula-card">
+    <p class="formula-title">The math, in the open</p>
+    <p class="formula-line" id="f-line1">8 meetings × 5 attendees × 15 min = 600 person-minutes per week</p>
+    <p class="formula-line" id="f-line2">600 min × 4.33 weeks ÷ 60 = 43.3 hours per month spent on notes</p>
+    <p class="formula-line" id="f-line3">43.3 h × 80% recovered × $48/h = $1,663 per month in reclaimed time</p>
+    <p class="formula-line" id="f-line4">$1,663 + $100 replaced tool spend = $1,763 saved per month</p>
+    <p class="formula-line" id="f-line5">$3,000 build ÷ $1,763/mo × 30.4 days = pays for itself in 52 days</p>
+    <p class="formula-result good" id="f-result">Year one: $16,353 net after build price and 12 months of maintenance.</p>
+  </div>
+
+  <div class="callout callout-good">
+    <p><strong>Why 80%, not 100%.</strong> People still skim their notes - that is the point of notes. We only claim the time MeetingOS genuinely hands back: writing, formatting, sending, and chasing. Quoting 100% would be a sales number. Quoting 80% is a number you can defend in front of the owner's bookkeeper.</p>
+  </div>
+
+  <div class="callout">
+    <p><strong>The money is the small half.</strong> The hours come back as mornings that start with decisions already made instead of inboxes full of "remind me what we agreed." Price the money honestly; let the client feel the time and energy return in week one.</p>
+  </div>
+
+  <!-- ============ CHART SOURCE DATA ============ -->
+  <h2>Chart Source Data - ComfortFlow HVAC Pre-filled Scenario</h2>
+  <p class="text-small text-muted">The chart above links here. These are the exact numbers it draws, computed from the pre-filled inputs with the stated 80% recovery assumption.</p>
+
+  <h3 class="jump-target" id="data-savings-mix">Data Table: Where the Monthly Savings Come From - ComfortFlow HVAC (Pre-filled Scenario)</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Savings source</th><th>How it is computed</th><th>Per month</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Reclaimed note and follow-up time</td><td>43.3 h × 80% recovered × $48/h</td><td class="num">$1,663</td></tr>
+      <tr><td>Replaced AI-notes tool spend</td><td>5 Otter.ai Business seats at $20 each</td><td class="num">$100</td></tr>
+      <tr><td><strong>Total monthly savings</strong></td><td>Payback: $3,000 build in 52 days</td><td class="num"><strong>$1,763</strong></td></tr>
+    </tbody>
+  </table>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="footer-brand">FreedomAIOS · MeetingOS</p>
+    <p>Fictional pre-filled scenario. All outputs recompute from the inputs - no hidden multipliers beyond the stated 80% recovery assumption.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var RECOVERY = 0.80;       // stated recovery assumption - do not inflate
+  var WEEKS_PER_MONTH = 4.33;
+  var DAYS_PER_MONTH = 30.4;
+  var MAINTENANCE = 150;     // $/month, standard MeetingOS plan
+
+  function num(id) {
+    var el = document.getElementById(id);
+    var v = parseFloat(el.value);
+    return isNaN(v) || v < 0 ? 0 : v;
+  }
+
+  function fmtMoney(v) {
+    return '$' + Math.round(v).toLocaleString('en-US');
+  }
+
+  function recalc() {
+    var meetings = num('in-meetings');
+    var attendees = num('in-attendees');
+    var hourly = num('in-hourly');
+    var minutes = num('in-minutes');
+    var tool = num('in-tool');
+    var price = num('in-price');
+
+    var weeklyMin = meetings * attendees * minutes;
+    var monthlyHours = weeklyMin * WEEKS_PER_MONTH / 60;
+    var recoveredHours = monthlyHours * RECOVERY;
+    var timeSavings = recoveredHours * hourly;
+    var totalMonthly = timeSavings + tool;
+    var paybackDays = totalMonthly > 0 ? price / totalMonthly * DAYS_PER_MONTH : 0;
+    var yearOneNet = totalMonthly * 12 - price - MAINTENANCE * 12;
+
+    document.getElementById('out-hours').textContent = recoveredHours.toFixed(1);
+    document.getElementById('out-dollars').textContent = fmtMoney(totalMonthly);
+    document.getElementById('out-payback').textContent =
+      totalMonthly > 0 ? Math.round(paybackDays) + ' days' : ' - ';
+
+    document.getElementById('f-line1').textContent =
+      meetings + ' meetings × ' + attendees + ' attendees × ' + minutes +
+      ' min = ' + Math.round(weeklyMin).toLocaleString('en-US') + ' person-minutes per week';
+    document.getElementById('f-line2').textContent =
+      Math.round(weeklyMin).toLocaleString('en-US') + ' min × 4.33 weeks ÷ 60 = ' +
+      monthlyHours.toFixed(1) + ' hours per month spent on notes';
+    document.getElementById('f-line3').textContent =
+      monthlyHours.toFixed(1) + ' h × 80% recovered × ' + fmtMoney(hourly) +
+      '/h = ' + fmtMoney(timeSavings) + ' per month in reclaimed time';
+    document.getElementById('f-line4').textContent =
+      fmtMoney(timeSavings) + ' + ' + fmtMoney(tool) + ' replaced tool spend = ' +
+      fmtMoney(totalMonthly) + ' saved per month';
+    document.getElementById('f-line5').textContent = totalMonthly > 0
+      ? fmtMoney(price) + ' build ÷ ' + fmtMoney(totalMonthly) + '/mo × 30.4 days = pays for itself in ' +
+        Math.round(paybackDays) + ' days'
+      : 'Enter a monthly saving above zero to compute payback.';
+    document.getElementById('f-result').textContent =
+      'Year one: ' + fmtMoney(yearOneNet) +
+      ' net after build price and 12 months of maintenance.';
+  }
+
+  var ids = ['in-meetings', 'in-attendees', 'in-hourly', 'in-minutes', 'in-tool', 'in-price'];
+  ids.forEach(function (id) {
+    document.getElementById(id).addEventListener('input', recalc);
+  });
+
+  recalc();
+})();
+</script>
+
+</body>
+</html>

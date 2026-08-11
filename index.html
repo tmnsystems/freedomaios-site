@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en" data-scribe-recorder-ready="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The FreedomAIOS Audit</title>
+<meta name="description" content="Losing money, time, and energy to problems you can't see? One working session. You leave with a Freedom Roadmap: what to fix first, and how.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Are You Losing Money, Time, and Energy to Problems You Can't Even See?">
+<meta property="og:description" content="You leave with a Freedom Roadmap: what's broken, what it costs you, what to fix first. $300, and if I can't find you $1,000, you don't pay.">
+<meta property="og:image" content="assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Are You Losing Money, Time, and Energy to Problems You Can't Even See?">
+<meta name="twitter:description" content="You leave with a Freedom Roadmap: what's broken, what it costs you, what to fix first. $300, and if I can't find you $1,000, you don't pay.">
+<meta name="twitter:image" content="assets/img/og-image.png">
+<link rel="icon" href="./favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #F1EFE9;
+    color: #2B2B2B;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: left;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 48px auto;
+    padding: 10px 56px 64px;
+    background: #FAFAF8;
+    border: 1px solid rgba(27, 58, 92, 0.16);
+    box-shadow:
+      0 1px 3px rgba(27, 58, 92, 0.06),
+      0 24px 48px rgba(27, 58, 92, 0.08);
+  }
+  .masthead {
+    margin: 0 0 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666666;
+    text-align: center;
+  }
+  .masthead .brand-logo {
+    height: 72px;
+    width: auto;
+    display: block;
+    margin: 0 auto 14px;
+  }
+  .hook {
+    text-align: center;
+    margin-bottom: 36px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(27, 58, 92, 0.16);
+  }
+  .hook .prehead {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #1B3A5C;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .hook .headline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 31px;
+    font-weight: 900;
+    line-height: 1.3;
+    color: #CC0000;
+    text-align: left;
+    text-wrap: balance;
+    margin-bottom: 16px;
+  }
+  .hl-part { display: block; margin-bottom: 14px; color: #111111; text-align: center; }
+  .hl-main { color: #A80000; font-size: 44px; font-weight: 900; }
+  .hl-red { color: #A80000; }
+  .hl { background-color: #FFF066; padding: 0 2px; }
+  .hl-part, .hl-part span { font-size: 31px; font-weight: 900; }
+  .hl-main, .hl-main span { font-size: 44px; }
+  .hl-hide { visibility: hidden; }
+  .u { text-decoration: underline; }
+  .hook .subhead {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #111111;
+    text-align: center;
+  }
+  .nb { display: inline; }
+  .cta-note {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666666;
+    max-width: 520px;
+  }
+  .proof-line {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .guarantee-text {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .offerline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.45;
+    color: #1B3A5C;
+    text-align: left;
+    margin-top: 20px;
+  }
+  .subhook {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.35;
+    color: #CC0000;
+    margin: 36px 0 24px;
+  }
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1B3A5C;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  .sub {
+    font-size: 18px;
+    font-style: italic;
+    color: #2B2B2B;
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1B3A5C;
+    text-align: left;
+    margin-top: 48px;
+    margin-bottom: 18px;
+  }
+  h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #1B3A5C;
+    text-align: left;
+    margin-top: 36px;
+    margin-bottom: 12px;
+  }
+  p { margin-bottom: 24px; text-align: left; }
+  blockquote {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.7;
+    color: #2B2B2B;
+    border-left: 3px solid #E0DDD6;
+    padding-left: 20px;
+    margin-left: 0;
+    margin-bottom: 24px;
+  }
+  blockquote .cite {
+    display: block;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666666;
+    margin-top: 8px;
+  }
+  .highlight { background-color: #FFF066; }
+  .urgent { color: #CC0000; font-weight: bold; }
+  .price {
+    margin-bottom: 24px;
+  }
+  .price .amount {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1B3A5C;
+  }
+  .price .label {
+    font-size: 14px;
+    color: #666666;
+    margin-top: 8px;
+  }
+  ol.steps {
+    margin: 0 0 24px 24px;
+  }
+  ol.steps li {
+    margin-bottom: 12px;
+  }
+  .cta {
+    margin: 48px 0 24px;
+  }
+  .cta a.btn {
+    display: inline-block;
+    background: #1B3A5C;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 18px 36px;
+    border: none;
+    border-radius: 0;
+  }
+  a { color: #2E6DA4; text-decoration: underline; }
+  a:visited { color: #2E6DA4; }
+  .asset-wrap {
+    margin: 28px 0;
+    border: 1px solid rgba(27, 58, 92, 0.28);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(27, 58, 92, 0.10);
+  }
+  .asset-wrap img {
+    width: 100%;
+    display: block;
+  }
+  .trio {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 28px 0;
+  }
+  .trio .asset-wrap {
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .trio { grid-template-columns: 1fr; }
+  }
+  .feature-solo {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Testimonial placements: floated and centered standalones */
+  .t-side {
+    width: 290px;
+    margin: 6px 0 20px 26px;
+  }
+  .t-side.left {
+    float: left;
+    margin: 6px 26px 20px 0;
+  }
+  .t-side.right {
+    float: right;
+  }
+  .clear { clear: both; }
+  /* Client voices slider */
+  .tslider {
+    margin: 36px 0 44px;
+    background: #1B3A5C;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(27, 58, 92, 0.25);
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+  }
+  .tslider .tslide {
+    display: none;
+    padding: 34px 64px 30px;
+    text-align: center;
+  }
+  .tslider .tslide:first-child { display: block; } /* no-JS fallback: first slide renders statically */
+  .tslider.js .tslide { display: none; }
+  .tslider.js .tslide.active { display: block; }
+  .tslider .ts-quote {
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .tslider .ts-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #D9A441;
+    margin-bottom: 2px;
+    text-align: center;
+  }
+  .tslider .ts-role {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .tslider .ts-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(217, 164, 65, 0.55);
+    background: rgba(255, 255, 255, 0.06);
+    color: #D9A441;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+  }
+  .tslider.js .ts-btn { display: block; }
+  .tslider .ts-btn:hover, .tslider .ts-btn:focus {
+    background: #D9A441;
+    color: #1B3A5C;
+    outline: none;
+  }
+  .tslider .ts-prev { left: 12px; }
+  .tslider .ts-next { right: 12px; }
+  .tslider .ts-dots {
+    display: none;
+    text-align: center;
+    padding-bottom: 16px;
+  }
+  .tslider.js .ts-dots { display: block; }
+  .tslider .ts-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    margin: 0 4px;
+    padding: 0;
+  }
+  .tslider .ts-dot.active { background: #D9A441; }
+  /* Wall of Love index */
+  .love-wall {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin: 20px 0 32px;
+  }
+  .love-wall figure { margin: 0; }
+  .love-wall img {
+    width: 100%;
+    display: block;
+    border: 1px solid rgba(27, 58, 92, 0.20);
+    border-radius: 4px;
+  }
+  .love-wall figcaption {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    color: #666666;
+    margin-top: 4px;
+  }
+  @media (max-width: 640px) {
+    .t-side, .t-side.left, .t-side.right {
+      float: none;
+      width: 100%;
+      margin: 20px 0;
+    }
+    .tslider .tslide { padding: 28px 48px 26px; }
+    .tslider .ts-quote { font-size: 17px; }
+    .love-wall { grid-template-columns: repeat(3, 1fr); }
+  }
+  .intro {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    margin-bottom: 36px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(27, 58, 92, 0.16);
+  }
+  .intro .photo {
+    flex: 0 0 168px;
+  }
+  .intro .photo img {
+    width: 168px;
+    height: 168px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1B3A5C;
+    box-shadow: 0 8px 24px rgba(27, 58, 92, 0.18);
+    display: block;
+  }
+  .intro .bio p {
+    margin-bottom: 16px;
+  }
+  .intro .bio p:last-child {
+    margin-bottom: 0;
+  }
+  .intro .sig {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #1B3A5C;
+  }
+  @media (max-width: 640px) {
+    .intro { flex-direction: column; align-items: center; text-align: left; }
+  }
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 56px 48px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666666;
+    text-align: left;
+    border-top: 1px solid rgba(27, 58, 92, 0.16);
+    padding-top: 24px;
+  }
+  @media (max-width: 640px) {
+    .wrap {
+      margin: 0 auto;
+      padding: 10px 24px 40px;
+      border-left: none;
+      border-right: none;
+    }
+    .hl-part, .hl-part span { font-size: 24px; }
+    .hl-main, .hl-main span { font-size: 32px; }
+    .hook .subhead { font-size: 19px; }
+  }
+</style>
+<style data-editstyle>
+  /* Edit mode */
+  body.editing [data-editable] { outline: 1px dashed #2E6DA4; outline-offset: 2px; cursor: text; }
+  body.editing [data-editable]:hover { outline: 2px solid #2E6DA4; background: rgba(46,109,164,0.04); }
+  #editbar {
+    display: none;
+    position: fixed; bottom: 20px; right: 20px; z-index: 99999;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #1B3A5C; color: #fff; border-radius: 8px;
+    padding: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  #editbar button {
+    display: block; width: 100%; margin: 4px 0; padding: 10px 16px;
+    font-size: 14px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer;
+  }
+  #editbar .eb-toggle { background: #D9A441; color: #1B3A5C; }
+  #editbar .eb-save { background: #1E7A4C; color: #fff; }
+  #editbar .eb-hint { font-size: 11px; color: #b8c8d8; text-align: center; padding-top: 4px; }
+  body.editing #editbar { display: block; }
+</style>
+
+<!-- Canonical base is https://freedomaios.com (future public home, not live yet). Per SITE-PACKAGE-STANDARD.md: per-page JSON-LD for search + AI comprehension. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://freedomaios.com/#organization",
+      "name": "FreedomAIOS",
+      "url": "https://freedomaios.com/",
+      "description": "FreedomAIOS builds AI operating systems for small businesses - audits, templates, and agent skills that turn AI into working business systems."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://freedomaios.com/#website",
+      "url": "https://freedomaios.com/",
+      "name": "FreedomAIOS",
+      "publisher": {
+        "@id": "https://freedomaios.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://freedomaios.com/#webpage",
+      "url": "https://freedomaios.com/",
+      "name": "The FreedomAIOS Audit",
+      "description": "Losing money, time, and energy to problems you can't see? One working session. You leave with a Freedom Roadmap: what to fix first, and how.",
+      "isPartOf": {
+        "@id": "https://freedomaios.com/#website"
+      },
+      "about": {
+        "@id": "https://freedomaios.com/#audit"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://freedomaios.com/#audit",
+      "name": "FreedomAIOS Business Audit",
+      "description": "One working session that finds where your business is losing money, time, and energy to problems you can't see. You leave with a Freedom Roadmap: what's broken, what it costs you, and what to fix first.",
+      "brand": {
+        "@id": "https://freedomaios.com/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://freedomaios.com/",
+        "priceCurrency": "USD",
+        "price": "300",
+        "description": "$300 flat. If the audit can't find you $1,000, you don't pay."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <div class="masthead" data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><img class="brand-logo" src="./assets/img/brand/logo-transparent.png" alt="FreedomAIOS - Take The Road Less Traveled"></div>
+
+  <div class="hook">
+    <div class="prehead" data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">ATTENTION BUSINESS OWNERS:</div>
+    <div class="headline" data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><span class="hl-part hl-main">Are You a Business Owner Who Feels Like <span class="nb">Progress Is a</span> <span class="nb">Hamster Wheel?</span></span>
+<span class="hl-part"><span class="hl">You Know AI Could Help.</span> <span class="nb">But You&rsquo;ve Been Burned</span> <span class="nb">by the Hype, and</span> <span class="u"><span class="nb">Don&rsquo;t Have the Time,</span> <span class="nb">the Team, or the Skill</span> <span class="nb">to Build It Yourself.</span></span></span>
+<span class="hl-part">Are You <span class="hl-red"><span class="nb">Losing Money, Time, and Energy</span> <span class="nb">to Problems You Don&rsquo;t Measure,</span></span> <span class="nb">Because a Measuring System</span> <span class="u"><span class="nb">Takes Too Much Time</span> <span class="nb">to Build?</span></span></span></div>
+    <div class="subhead" data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">What if I could show you exactly where your business is losing all three, and you&rsquo;d leave with a Freedom Roadmap telling you what to fix first, and how?</div>
+  </div>
+
+  <!-- ==================== CLIENT VOICES SLIDER ==================== -->
+  <div class="tslider" id="tslider" role="region" aria-roledescription="carousel" aria-label="What clients say about working with Tina">
+    <div class="tslides">
+      <div class="tslide" role="group" aria-roledescription="slide" aria-label="1 of 5">
+        <p class="ts-quote">&ldquo;Within one month I was working less and had doubled my income.&rdquo;</p>
+        <p class="ts-name">Darren Hanser</p>
+        <p class="ts-role">Copywriter</p>
+      </div>
+      <div class="tslide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+        <p class="ts-quote">&ldquo;&hellip;instrumental in our growth &mdash; over a thousand percent in nine months, and she gave me my focus and freedom back.&rdquo;</p>
+        <p class="ts-name">Arthur Tubman</p>
+        <p class="ts-role">CEO, D4Y Brand Builder</p>
+      </div>
+      <div class="tslide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+        <p class="ts-quote">&ldquo;In four to five sessions Tina completely structured the business&hellip; already booked up, high six figures.&rdquo;</p>
+        <p class="ts-name">Travis Sago</p>
+        <p class="ts-role">Mojo Marketing</p>
+      </div>
+      <div class="tslide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+        <p class="ts-quote">&ldquo;Working with Tina gave me clarity &mdash; I created a high-ticket offer and clients paid for it.&rdquo;</p>
+        <p class="ts-name">Gustavo Ferreira</p>
+        <p class="ts-role">Business Consultant and Copywriter</p>
+      </div>
+      <div class="tslide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+        <p class="ts-quote">&ldquo;Tina literally gave my business a full makeover &mdash; I can see our business most likely doubling next year.&rdquo;</p>
+        <p class="ts-name">David Corbaley</p>
+        <p class="ts-role">MarketingCommando.com</p>
+      </div>
+    </div>
+    <button type="button" class="ts-btn ts-prev" aria-label="Previous testimonial">&lsaquo;</button>
+    <button type="button" class="ts-btn ts-next" aria-label="Next testimonial">&rsaquo;</button>
+    <div class="ts-dots"></div>
+  </div>
+  <script>
+  (function () {
+    var slider = document.getElementById('tslider');
+    if (!slider) { return; }
+    var slides = slider.querySelectorAll('.tslide');
+    if (slides.length < 2) { return; }
+    slider.classList.add('js');
+    var dotsWrap = slider.querySelector('.ts-dots');
+    var i = 0;
+    var timer = null;
+    var DELAY = 5500;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var dots = [];
+    function show(idx) {
+      i = (idx + slides.length) % slides.length;
+      for (var n = 0; n < slides.length; n++) {
+        slides[n].classList.toggle('active', n === i);
+        slides[n].setAttribute('aria-hidden', n === i ? 'false' : 'true');
+        dots[n].classList.toggle('active', n === i);
+      }
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function start() {
+      if (reduceMotion || timer || document.hidden) { return; }
+      timer = setInterval(function () { show(i + 1); }, DELAY);
+    }
+    function restart() { stop(); start(); }
+    for (var n = 0; n < slides.length; n++) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'ts-dot';
+      d.setAttribute('aria-label', 'Show testimonial ' + (n + 1) + ' of ' + slides.length);
+      (function (dot, idx) {
+        dot.addEventListener('click', function () { show(idx); restart(); });
+      })(d, n);
+      dotsWrap.appendChild(d);
+      dots.push(d);
+    }
+    slider.querySelector('.ts-next').addEventListener('click', function () { show(i + 1); restart(); });
+    slider.querySelector('.ts-prev').addEventListener('click', function () { show(i - 1); restart(); });
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    slider.addEventListener('focusin', stop);
+    slider.addEventListener('focusout', start);
+    slider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); show(i + 1); restart(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); show(i - 1); restart(); }
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { stop(); } else { start(); }
+    });
+    show(0);
+    start();
+  })();
+  </script>
+
+  <!-- ==================== INTRO ==================== -->
+  <div class="intro">
+    <div class="photo">
+      <img src="./assets/img/team/tina-headshot-2x.png" alt="Tina Marie, founder of FreedomAIOS">
+    </div>
+    <div class="bio">
+      <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><span class="sig">Hi friend, I&rsquo;m Tina Marie.</span></p>
+      <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">I&rsquo;ve been finding the holes, the gaps, and the bottlenecks in businesses <strong>since 2002</strong>. For years I did it by building and fixing teams. Now I build systems that do the same work, and I&rsquo;ve done this for <strong>nearly a hundred businesses</strong>.</p>
+      <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">My clients pay <strong>$1,000 an hour</strong> to meet with me each week. This audit is that same working session, distilled into one flat-price diagnosis of your business. And everything we find gets written down, on paper, in your Freedom Roadmap.</p>
+      <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">This is what the audit delivers:</p>
+    </div>
+  </div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/scorecard-hero-2x.png" alt="FreedomAIOS Business Scorecard sample report: what the audit delivers">
+  </div>
+
+  <!-- ==================== DAN MEREDITH FEATURE ==================== -->
+  <h3 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Dan Meredith, Author of How to Be F*cking Awesome</h3>
+
+  <div class="feature-solo asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-6-new.png" alt="Dan Meredith, Author of How to Be F*cking Awesome: two years later I'm working a couple hours a day with a business on track for seven figures">
+  </div>
+
+  <!-- ==================== THE PROBLEM ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The Problem: Hidden Waste in Your Business</h2>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Two businesses can run the same revenue on the same hours. One keeps the money. One leaks it. The difference is almost never effort. It's whether anyone ever stopped to look at how the business actually runs.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Every business leaks. Most owners cannot see the leaks because they are standing inside them. Operational waste does not announce itself. It hides in payroll, in duplicated work, in processes nobody has questioned in three years.</p>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/leak-map-v2.png" alt="Leak map: where revenue escapes between Lead, Sale, Delivery, and Retention">
+  </div>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Most owners don't realize they're losing money that should be coming to them. The problem with aggregated data is that you're not looking at all the channels, all the sources, so you bleed out a little bit at a time. And for want of a little bit of extra effort, <span class="highlight">it's all preventable</span>.</p>
+
+  <div class="feature-solo asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-17.png" alt="Cory Shanes, The 24/7 Entrepreneur: get reorganized, get restructured, work less and make more money">
+  </div>
+
+  
+
+  <!-- ==================== THE PAIN ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">What Hidden Waste Is Costing Your Business</h2>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong><span class="highlight">You have finite energy, finite willpower, finite time.</span></strong> Every hour your business spends on the wrong thing is an hour it cannot get back. And every month the leak stays open, the cost compounds. <strong>$2,000 here, $1,000 there, gone before you ever knew it was yours.</strong></p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Every bit of mental effort and energy these systems save is a force multiplier. When you spend less time thinking about the minutia, you can think about higher-level things: growing the business, hiring, training, taking care of your people. That capacity is the real savings, because energy, willpower, and time are all limited.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>The math doesn&rsquo;t lie.</strong> <span class="highlight">Your numbers know exactly where the bottlenecks are.</span> Most owners never look. The ones who look often don&rsquo;t know what they&rsquo;re seeing.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="subhook">Wherever you're bottlenecked, there's money, but you're not getting to it, because you're doing a thousand other things.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Open that bottleneck now and you're not just making more; <span class="highlight">you're getting the money six months faster, or a year faster.</span></p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">So the leak stays open. The hours keep burning.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>And the money that should be in your pocket goes to the leak instead.</strong></p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">So this is what your week looks like. You finish the work, then you do the work about the work: the email, the calendar, the documents, the checking. You hear about AI every week. You know it could take some of this off your plate. You don't have the time to figure out how, and the last thing you tried didn't survive contact with your actual business. So it all stays on your plate, and the plate gets heavier, and the things only you can do wait for the energy you already spent.</p>
+
+  <div class="feature-solo asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-5.png" alt="Darren Hanser, Copywriter: within one month I was working less and had doubled my income">
+  </div>
+
+  <h1 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The FreedomAIOS Audit</h1>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="sub">A complete diagnosis of your business. One flat price.</p>
+
+  <!-- ==================== THE APEX / OFFER ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">How the FreedomAIOS Audit Works</h2>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">If you qualify for a FreedomAIOS Business Audit, I'll show you exactly where your business is losing all three (<strong>money, time, and energy</strong>), and you'll leave with a <strong>Freedom Roadmap</strong> telling you what to fix first, and how.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="proof-line">I've done this for nearly a hundred businesses, and every one of them <span class="highlight">saved AND earned many multiples the cost of the call.</span></p>
+
+  <div class="t-side right asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-10.png" alt="Manish Punjabi, Conversion Fanatics: Tina has worked with me to build and scale up multiple 7-figure companies">
+  </div>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">My clients pay <strong>$1,000 an hour</strong> to meet with me each week. This audit is <strong>$300, one flat price</strong>, because it's the first step toward a custom FreedomAIOS, built, installed, and maintained for you.</p>
+
+  <div class="clear"></div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-1.png" alt="Danny Clarke, CEO HelloFreedom.co: Tina helped us build a coaching business that reached over 130,000 people in 76 countries">
+  </div>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="guarantee-text"><strong>And if I can't show you how to generate or save at least $1,000, you don't pay.</strong></p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Let us do the math on what a diagnosis like this is worth:</p>
+
+<ul>
+  <li data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">If we improve your profits by just <strong>2%</strong>, that is an extra <strong>$5,000 this month</strong>.<br>
+  <em>But the audit will not cost you $5,000.</em></li>
+
+  <li data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">If we find <strong>$2,000 a month</strong> in wasted employee hours (duplicated work, manual processes that should be automated, tasks nobody owns), that is <strong>$24,000 a year</strong>.<br>
+  <em>But the audit will not cost you $2,000.</em></li>
+
+  <li data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">If we open <strong>one bottleneck</strong> (one approval chain, one broken handoff, one tool you are paying for and not using), that is <strong>$1,000 a month recovered</strong>, starting the month you fix it.<br>
+  <em>But the audit will not cost you $1,000.</em></li>
+</ul>
+
+<div class="asset-wrap">
+  <img src="./assets/img/testimonials/testimonial-2-new.png" alt="Corey Vandenberg, Co-Founder Clixsy: she showed us where the efficiencies were, helped us get ROI immediately, and brought a level of clarity I've never found anywhere else">
+</div>
+
+<h3 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The audit costs $300.</h3>
+
+<p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">You show up. We look at how your business actually runs: where the hours go, where the money leaks, what is slowing everything down. You leave knowing exactly what is broken, what it costs you every month it stays broken, and what to fix first.</p>
+
+<p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">That roadmap is yours. Even if we never speak again, you walk out with a plan you can hand to anyone, or execute yourself.</p>
+
+  <!-- ==================== WHAT THE AUDIT INCLUDES ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">What the FreedomAIOS Audit Includes</h2>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The audit is a structured diagnostic. I do not hand you the questions in advance, and I do not publish them here. They work because they catch owners off guard. Off guard is where the truth lives.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Here is what I will tell you: <strong><span class="highlight">eighteen out of twenty owners cannot answer them off the top of their head.</span></strong> These are not trick questions. They are basic questions about your own operation: how your hours get spent, where your money goes, what your time is worth. If you can&rsquo;t answer them, that&rsquo;s the first finding, and the audit hasn&rsquo;t even started.</p>
+
+  <h3 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">What You Walk Away With</h3>
+
+  <div class="t-side left asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-14.png" alt="Tony Litster, Internet Marketing Business Owner: she'll take your business to levels you couldn't have imagined before">
+  </div>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">A clear picture of what is broken. A map of where the leaks are. A prioritized order of operations: what to fix first, what to fix second, what to leave alone. That roadmap is yours to keep, whether we ever speak again or not.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">My job is simple: <span class="highlight">I find the holes, the gaps, the bottlenecks, the problems, and solve them.</span></p>
+
+  <div class="clear"></div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/method-scorecard.png" alt="Method Scorecard">
+  </div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-16.png" alt="Travis Sago, Mojo Marketing: in four to five sessions Tina completely structured the business; launched my agency, already booked up, high six figures">
+  </div>
+
+  
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">I've called myself a catalyst for growth for years, period, and that's exactly what this audit is built to be.</p>
+
+  <div class="feature-solo asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-13.png" alt="David Corbaley, MarketingCommando.com: Tina literally gave my business a full makeover — I can see our business most likely doubling next year">
+  </div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/framework-v2.png" alt="The Six Business Systems, FreedomAIOS framework">
+  </div>
+
+  
+
+  <!-- ==================== THE METHOD ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The Five Steps of the Audit</h2>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The audit follows a five-step process. The internal steps stay veiled. They are the product.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>The shape of the process is this:</strong></p>
+
+  <ol class="steps">
+    <li data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>Baseline.</strong> We establish where you actually stand, not where you think you stand. Historical data does not flatter anyone.</li>
+    <li data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>Effective hourly rate.</strong> We calculate what your time is actually worth and where it is actually going. The gap between those two numbers is usually the first shock.</li>
+    <li data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>Pipeline visibility.</strong> We map how work and money actually move through your business. Most owners have never seen this laid out in front of them.</li>
+    <li data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>The two-column sort.</strong> Every activity in your business goes into one of two columns. The sort is brutal and it is clarifying.</li>
+    <li data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>The Dashboard of Truth.</strong> The final deliverable. Your roadmap, on paper: what is broken, where the leaks are, what to fix first.</li>
+  </ol>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/roadmap.png" alt="Roadmap">
+  </div>
+
+  
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">If you've got blanks in core fields, you've got unreliable data, and building a strategy on unreliable data is like building a house on a foundation you never checked. That's why we start with the baseline. Then we calculate your effective hourly rate: the hours you work each month, divided into the money you're making. That number tells you what your hour is actually worth, and for most owners it's the first real shock of the day.</p>
+
+  <div class="t-side right asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-11.png" alt="Gustavo Ferreira, Business Consultant and Copywriter: working with Tina gave me clarity — I created a high-ticket offer and clients paid for it">
+  </div>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">From there the questions get sharper. What are the things only you can do? And what are the things only you can do <em>right now</em> that AI could already help with: email, calendar management, documents, research? The tools exist today. The right systems eliminate the manual checks and create work only for genuine issues, no human effort required, because it's built into the system.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">And the goal isn't bells and whistles. The fastest paths to cash and freedom are about getting done what needs to get done, and delegating it without abdicating it.</p>
+
+  <div class="clear"></div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/before-after.png" alt="Before and After">
+  </div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/testimonials/testimonial.png" alt="Testimonial">
+  </div>
+
+  
+
+  
+
+  <!-- ==================== AFTER THE AUDIT ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">What Happens After the Audit</h2>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">After your audit, you'll know everything you need to do to improve your profit margins and reduce your stress, with a clear, fact-based roadmap to follow. But when you leave the audit, you're still the same person with the same people, armed with new knowledge, yes, but not necessarily more time or more energy.</p>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>FreedomAIOS can help.</strong> I've figured out how to build systems that solve the problems I used to build teams to solve. Now we build those systems so your current team, even if it's just you, can run them to execute the roadmap for you. Each FreedomAIOS is a custom build, with the ability to support, and sometimes replace, entire departments.</p>
+
+  <div class="feature-solo asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-15.png" alt="Arthur Tubman, CEO D4Y Brand Builder: instrumental in our growth — over a thousand percent in nine months, and she gave me my focus and freedom back">
+  </div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/freedomaios-build.png" alt="What a custom FreedomAIOS build looks like: design, build, install, maintain">
+  </div>
+
+  
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">After you've received your <strong>Freedom Roadmap</strong>, we take time to study everything and make sure we're confident we can build a solution for you, then we present it. You'll have the opportunity to receive a quote for a custom AI solution that we build, maintain, and improve for you. There is no obligation to buy, and the audit call is not spent pitching you or selling you anything.</p>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/audit-to-build.png" alt="From Freedom Roadmap to custom FreedomAIOS build">
+  </div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/freedom-path-v2.png" alt="The Freedom Path: Step One, The Audit - find the leaks and get your Freedom Roadmap; Step Two, The Build - your custom FreedomAIOS designed, built, and installed; Step Three, Freedom - maintained and scaled so you get your time back">
+  </div>
+
+  
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><span class="urgent">The audit stands on its own.</span> You can take your Freedom Roadmap and execute it yourself, hand it to your team, or bring it to anyone you like. It is yours.</p>
+
+  <!-- ==================== THE GUARANTEE ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">My Guarantee to You</h2>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="guarantee-text">If we don't find at least one way for you to generate or save <strong>$1,000</strong>, I refund your <strong>$300</strong> on the spot. No fine print. No forms. <strong>You risk nothing by showing up.</strong></p>
+
+  <div class="feature-solo asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-12.png" alt="Chris Schar, Golden Mastermind: working with Tina has been absolutely phenomenal — life-changing">
+  </div>
+
+  <div class="asset-wrap">
+    <img src="./assets/img/guarantee-badge-v3.png" alt="The FreedomAIOS Leak-Detection Promise: generate or save at least $1,000 or your $300 is refunded">
+  </div>
+
+  <!-- ==================== TYLER ELISON FEATURE ==================== -->
+  <div class="asset-wrap">
+    <img src="./assets/img/testimonials/testimonial-8.png" alt="Tyler Elison, CEO and Agency Owner: from never breaking six figures to owning multiple 7-figure businesses he doesn't have to run">
+  </div>
+
+  <!-- ==================== WALL OF LOVE INDEX ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The Clients Behind These Results</h2>
+
+  <div class="love-wall">
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-6-new.png" alt="Testimonial card: Dan Meredith">
+      <figcaption>Dan Meredith</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-17.png" alt="Testimonial card: Cory Shanes">
+      <figcaption>Cory Shanes</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-5.png" alt="Testimonial card: Darren Hanser">
+      <figcaption>Darren Hanser</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-10.png" alt="Testimonial card: Manish Punjabi">
+      <figcaption>Manish Punjabi</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-1.png" alt="Testimonial card: Danny Clarke">
+      <figcaption>Danny Clarke</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-2-new.png" alt="Testimonial card: Corey Vandenberg">
+      <figcaption>Corey Vandenberg</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-14.png" alt="Testimonial card: Tony Litster">
+      <figcaption>Tony Litster</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-16.png" alt="Testimonial card: Travis Sago">
+      <figcaption>Travis Sago</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-13.png" alt="Testimonial card: David Corbaley">
+      <figcaption>David Corbaley</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-11.png" alt="Testimonial card: Gustavo Ferreira">
+      <figcaption>Gustavo Ferreira</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-15.png" alt="Testimonial card: Arthur Tubman">
+      <figcaption>Arthur Tubman</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-12.png" alt="Testimonial card: Chris Schar">
+      <figcaption>Chris Schar</figcaption>
+    </figure>
+    <figure>
+      <img src="./assets/img/testimonials/testimonial-8.png" alt="Testimonial card: Tyler Elison">
+      <figcaption>Tyler Elison</figcaption>
+    </figure>
+  </div>
+
+  <!-- ==================== CTA ==================== -->
+  <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Book Your Audit Call</h2>
+
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Here's all it takes. One session. You show up, I find the leaks, you leave with the Freedom Roadmap: what's broken, what it costs you, what to fix first. If I can't show you how to generate or save at least $1,000, you don't pay.</p>
+
+  <div class="cta">
+    <a class="btn" href="#book-your-audit-call">Show Me Where the Money Goes</a>
+    <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="cta-note">I do these in person, one business at a time, so I keep the calendar short. This is for owners who already know something is leaking and want it found. If that's you, book now. If you're not there yet, keep this page. You'll know when it's time.</p>
+  </div>
+
+  
+
+</div>
+
+<footer>
+  © FreedomAIOS · The FreedomAIOS Audit
+
+<div id="editbar">
+  <button class="eb-toggle" onclick="document.body.classList.toggle('editing')">Toggle Edit Mode</button>
+  <button class="eb-save" onclick="saveEdits()">Save (Download HTML)</button>
+  <div class="eb-hint">Text is editable in place. Save downloads a copy.</div>
+</div>
+<script data-editscript>
+function saveEdits() {
+  var clone = document.documentElement.cloneNode(true);
+  clone.querySelector('#editbar')?.remove();
+  clone.querySelector('script[data-editscript]')?.remove();
+  clone.querySelector('style[data-editstyle]')?.remove();
+  var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], {type: 'text/html'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'aios-audit-offer-edited.html';
+  a.click();
+}
+</script>
+</footer>
+</body>
+</html>

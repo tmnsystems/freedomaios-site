@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Meeting Dashboard - ComfortFlow HVAC (Demo) · MeetingOS</title>
+<link rel="icon" href="../shared/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../shared/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../shared/assets/apple-touch-icon-180.png">
+<link rel="stylesheet" href="../../shared/theme.css">
+<script src="../../shared/theme.js"></script>
+<script src="../shared/charts.js"></script>
+<style>
+  /* Layout only. All colors from shared/theme.css variables. */
+  .module-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.72em;
+    margin: 0 0 8px;
+  }
+  .stat-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy);
+    border-radius: var(--radius);
+    padding: 12px 12px;
+    box-shadow: var(--shadow);
+  }
+  .stat-card .big-number { font-size: 1.55em; }
+  .page-note {
+    font-size: 0.78em;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .chart-card h3 { margin-top: 0; }
+  .chart-card .chart-sub {
+    font-size: 0.72em;
+    color: var(--text-muted);
+    margin: 2px 0 4px;
+  }
+  .meeting-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .next-meeting-meta {
+    font-family: var(--font-heading);
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin: 4px 0 10px;
+  }
+</style>
+<!-- Canonical base is https://freedomaios.com (future public home, not live yet). Per SITE-PACKAGE-STANDARD.md: per-page JSON-LD for search + AI comprehension. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://freedomaios.com/#organization",
+      "name": "FreedomAIOS",
+      "url": "https://freedomaios.com/",
+      "description": "FreedomAIOS builds AI operating systems for small businesses - audits, templates, and agent skills that turn AI into working business systems."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://freedomaios.com/#website",
+      "url": "https://freedomaios.com/",
+      "name": "FreedomAIOS",
+      "publisher": {
+        "@id": "https://freedomaios.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://freedomaios.com/module-templates/meetingos/dashboard.html#webpage",
+      "url": "https://freedomaios.com/module-templates/meetingos/dashboard.html",
+      "name": "Client Meeting Dashboard - ComfortFlow HVAC (Demo) - MeetingOS",
+      "description": "Every ComfortFlow meeting from last week, already read: notes written, decisions logged, follow-ups tracked. A MeetingOS demo dashboard using a fictional client.",
+      "isPartOf": {
+        "@id": "https://freedomaios.com/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="layout-wide">
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <img class="brand-logo brand-logo-lg" src="../shared/assets/logo-transparent.png" alt="FreedomAIOS - Take The Road Less Traveled">
+    <h1>Client Meeting Dashboard - ComfortFlow HVAC</h1>
+    <p class="tagline">Every ComfortFlow meeting from last week, already read: notes written, decisions logged, follow-ups tracked. Updated Monday, August 10, 2026, 7:00 AM PT.</p>
+  </div>
+</header>
+
+<main class="page dense">
+
+  <nav class="module-nav">
+    <a href="../index.html">All Operating Systems</a>
+    <a href="dashboard.html">Client Meeting Dashboard</a>
+    <a href="config-guide.html">New Client Setup Guide</a>
+    <a href="maintenance-checklist.html">Monthly Maintenance Checklist</a>
+    <a href="roi-calculator.html">Savings &amp; ROI Calculator</a>
+    <a href="onboarding-script.html">New Client Onboarding Script</a>
+  </nav>
+
+  <p class="page-note">Example client: ComfortFlow HVAC, Portland, Oregon, 12 people, residential and light-commercial heating and cooling. All names, meetings, and figures on this page are fictional and for demonstration.</p>
+
+  <!-- ============ WEEK AT A GLANCE: COMFORTFLOW HVAC ============ -->
+  <div class="grid-4">
+    <div class="stat-card" data-chart="stat" data-config='{"value":"6","label":["Client meetings captured","week of Aug 3 - 9"],"delta":"6 of 6 scheduled, zero missed"}'></div>
+    <div class="stat-card" data-chart="stat" data-config='{"value":"22 min","label":["Average wait for notes","after each meeting ends"],"delta":"Fastest 14 min, slowest 34 min"}'></div>
+    <div class="stat-card" data-chart="stat" data-config='{"value":"9","label":["Open action items","across all ComfortFlow meetings"],"delta":"3 due this week","deltaTone":"warn"}'></div>
+    <div class="stat-card" data-chart="stat" data-config='{"value":"2","label":["Open loops aging","past 5 days"],"delta":"Oldest: Airex credit memo, 11 days","tone":"warn","deltaTone":"bad"}'></div>
+  </div>
+
+  <!-- ============ CHARTS: COMFORTFLOW HVAC MEETING ACTIVITY ============ -->
+  <h2>ComfortFlow HVAC Meeting Activity at a Glance</h2>
+
+  <div class="chart-grid">
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-meetings-vs-notes">
+        <h3>Client Meetings vs Notes Delivered - ComfortFlow HVAC, by Week</h3>
+        <p class="chart-sub">Scheduled meetings against notes delivered. The Jul 20 week shows 6 of 7: a Friday sales call ran in a personal Zoom room and was backfilled by hand.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart of scheduled ComfortFlow HVAC meetings versus notes delivered, weeks of June 29 through August 3" data-config='{"labels":["Jun 29","Jul 6","Jul 13","Jul 20","Jul 27","Aug 3"],"series":[{"name":"Meetings scheduled","values":[6,6,6,7,7,6]},{"name":"Notes delivered","values":[6,6,6,6,7,6]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-completion-rate">
+        <h3>Action-Item Completion Rate - ComfortFlow HVAC, August to Date</h3>
+        <p class="chart-sub">Action items closed so far in August. The 9 still open are listed by owner in each meeting's notes email.</p>
+        <div class="fchart" data-chart="donut" role="img" aria-label="Progress ring showing 68 percent of ComfortFlow HVAC action items closed in August" data-config='{"value":19,"total":28,"center":"68%","sub":"19 of 28 closed","legend":["Closed (19)","Still open (9)"],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-open-closed">
+        <h3>Open vs Closed Action Items - ComfortFlow HVAC, August to Date</h3>
+        <p class="chart-sub">Every action item MeetingOS is tracking for ComfortFlow this month, split by status.</p>
+        <div class="fchart" data-chart="donut" role="img" aria-label="Donut chart showing 19 closed and 9 open ComfortFlow HVAC action items" data-config='{"segments":[{"name":"Closed","value":19},{"name":"Open","value":9}],"center":"28","sub":"tracked items","compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-decisions-week">
+        <h3>Decisions Logged per Week - ComfortFlow HVAC, Last 6 Weeks</h3>
+        <p class="chart-sub">Decisions pulled from transcripts into the searchable log. Rising weeks usually mean more bids and escalations, not more meetings.</p>
+        <div class="fchart" data-chart="line" role="img" aria-label="Trend chart of decisions logged per week for ComfortFlow HVAC, rising from 4 to 11 over six weeks" data-config='{"labels":["Jun 29","Jul 6","Jul 13","Jul 20","Jul 27","Aug 3"],"series":[{"name":"Decisions logged","values":[4,5,6,7,8,11]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-loop-aging">
+        <h3>Open Loops by Age Bucket - ComfortFlow HVAC Aging Watch</h3>
+        <p class="chart-sub">The 3 open follow-ups from the aging watch, bucketed by days since they were opened. Anything past 7 days gets chased today.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart of ComfortFlow HVAC open loops by age bucket: none under 4 days, two aged 4 to 7 days, one older than 7 days" data-config='{"labels":["0 - 3 days","4 - 7 days","8+ days"],"series":[{"name":"Open loops","values":[0,2,1]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-delivery-minutes">
+        <h3>Minutes from Meeting End to Notes Delivered - ComfortFlow HVAC, Aug 3 - 9</h3>
+        <p class="chart-sub">Per-meeting delivery time last week. Average 22 minutes; the Maple St escalation waited longest at 34 while Zoom processed the transcript.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart of minutes from meeting end to notes delivered for each ComfortFlow HVAC meeting last week, averaging 22 minutes" data-config='{"labels":["Ops Huddle","Rose Quarter","Standup","Maple St","Pipeline","Safety"],"series":[{"name":"Minutes to notes","values":[21,18,14,34,24,21]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ NEXT MEETING ============ -->
+  <h2>Next Scheduled Client Meeting - ComfortFlow HVAC</h2>
+  <div class="card card-accent">
+    <div class="meeting-head">
+      <h3 class="mt-0 mb-0">Weekly Ops Huddle - ComfortFlow HVAC Team</h3>
+      <span class="badge badge-good">Today</span>
+    </div>
+    <p class="next-meeting-meta">Monday, Aug 10 · 9:00 - 9:40 AM PT · 6 expected attendees · Scheduled Zoom series (MeetingOS-managed)</p>
+    <p class="mb-0">The agenda is pre-built from this dashboard: 9 open action items and 2 aging loops go on the table first, so the huddle starts with what is still owed instead of a round of reminders. Notes land in inboxes about 20 minutes after the call ends.</p>
+  </div>
+
+  <!-- ============ OPEN LOOPS ============ -->
+  <h2>Open Follow-Ups from Client Meetings - ComfortFlow HVAC Aging Watch</h2>
+  <div class="card card-accent">
+    <p class="text-small text-muted mt-0">Commitments made in ComfortFlow meetings that have not closed. MeetingOS keeps these on the table so nothing quietly dies in a notebook.</p>
+    <table>
+      <thead>
+        <tr><th>Open loop</th><th>Owner</th><th>Opened</th><th>Age</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Airex warranty claim for two failed capacitors: credit memo not yet received</td>
+          <td>Marcus Bell</td>
+          <td>Jul 30</td>
+          <td class="num">11 days</td>
+          <td><span class="badge badge-bad">Chase today</span></td>
+        </tr>
+        <tr>
+          <td>Brentwood Dental quote: verbal "looks good," no signed approval</td>
+          <td>Tom Okafor</td>
+          <td>Aug 4</td>
+          <td class="num">6 days</td>
+          <td><span class="badge badge-warn">Follow up</span></td>
+        </tr>
+        <tr>
+          <td>Rose Quarter revised proposal: pricing approved, document not yet sent</td>
+          <td>Priya Nair</td>
+          <td>Aug 4</td>
+          <td class="num">6 days</td>
+          <td><span class="badge badge-warn">Due Aug 11</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ LAST WEEK'S MEETINGS ============ -->
+  <h2>Last Week's Client Meetings - ComfortFlow HVAC, Aug 3 - 9</h2>
+  <div class="card">
+    <p class="text-small text-muted mt-0">One line per meeting. The full summary, decisions, and action items for each meeting were emailed to attendees and filed in the ComfortFlow notes folder.</p>
+    <table>
+      <thead>
+        <tr><th>Meeting</th><th>Date</th><th>Decisions logged</th><th>Action items</th><th>Notes sent</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Weekly Ops Huddle (team)</td>
+          <td>Mon, Aug 3</td>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td><span class="status-good">9:41 AM</span></td>
+        </tr>
+        <tr>
+          <td>Commercial Bid Review - Rose Quarter Office Park</td>
+          <td>Tue, Aug 4</td>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td><span class="status-good">2:33 PM</span></td>
+        </tr>
+        <tr>
+          <td>Install Crew Standup</td>
+          <td>Wed, Aug 5</td>
+          <td class="num">1</td>
+          <td class="num">2</td>
+          <td><span class="status-good">9:02 AM</span></td>
+        </tr>
+        <tr>
+          <td>Customer Escalation Review - Maple St</td>
+          <td>Thu, Aug 6</td>
+          <td class="num">3</td>
+          <td class="num">2</td>
+          <td><span class="status-good">3:38 PM</span></td>
+        </tr>
+        <tr>
+          <td>Sales Pipeline Review</td>
+          <td>Fri, Aug 7</td>
+          <td class="num">2</td>
+          <td class="num">2</td>
+          <td><span class="status-good">10:29 AM</span></td>
+        </tr>
+        <tr>
+          <td>Safety &amp; Training - Refrigerant Handling</td>
+          <td>Fri, Aug 7</td>
+          <td class="num">1</td>
+          <td class="num">1</td>
+          <td><span class="status-good">1:47 PM</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-small text-muted mb-0">Highlight from the week: the Rose Quarter bid was approved at $19,500 after Dana held the line on a 15% margin, and the Maple St compressor swap closed Monday with a loaner unit delivered same day.</p>
+  </div>
+
+  <!-- ============ DELIVERY HEALTH ============ -->
+  <h2>MeetingOS Note Delivery Health - ComfortFlow HVAC, Week of Aug 3 - 9</h2>
+  <div class="card card-navy">
+    <table>
+      <thead>
+        <tr><th>Check</th><th>Result</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Transcripts fetched after every scheduled meeting</td>
+          <td>6 of 6: longest wait 34 min after meeting end</td>
+          <td><span class="badge badge-good">Healthy</span></td>
+        </tr>
+        <tr>
+          <td>Notes emailed to attendees and dashboard updated</td>
+          <td>6 of 6: average 22 min after meeting end</td>
+          <td><span class="badge badge-good">Healthy</span></td>
+        </tr>
+        <tr>
+          <td>Note-quality sample (1 of 6 spot-read by your consultant)</td>
+          <td>Ops Huddle Aug 3: decisions and owners all correct</td>
+          <td><span class="badge badge-good">Pass</span></td>
+        </tr>
+        <tr>
+          <td>Duplicate or missing transcripts</td>
+          <td>None: dedup state clean</td>
+          <td><span class="badge badge-good">Clean</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-small text-muted mb-0">Something look wrong in a note? Reply to any MeetingOS email with the correction and your consultant fixes the note and tunes the template the same week.</p>
+  </div>
+
+  <!-- ============ QUICK LINKS ============ -->
+  <h2>MeetingOS Pages for ComfortFlow HVAC</h2>
+  <div class="module-grid">
+    <div class="module-card">
+      <h3>New Client Setup Guide</h3>
+      <p>Consultant-facing. How MeetingOS was installed for ComfortFlow: Zoom app, client folder, scheduling, and handoff checks, about 60 minutes of work.</p>
+      <p class="module-links"><a href="config-guide.html">Open the New Client Setup Guide</a></p>
+    </div>
+    <div class="module-card">
+      <h3>Monthly Maintenance Checklist</h3>
+      <p>What the $150 per month plan covers, line by line: weekly health checks, note-quality sampling, and response-time commitments.</p>
+      <p class="module-links"><a href="maintenance-checklist.html">Open the Monthly Maintenance Checklist</a></p>
+    </div>
+    <div class="module-card">
+      <h3>Savings &amp; ROI Calculator</h3>
+      <p>ComfortFlow's own numbers pre-filled: 34.6 hours and about $1,763 back per month, payback in 52 days. Change any figure and it recalculates.</p>
+      <p class="module-links"><a href="roi-calculator.html">Open the Savings &amp; ROI Calculator</a></p>
+    </div>
+    <div class="module-card">
+      <h3>New Client Onboarding Script</h3>
+      <p>The 30-minute walkthrough the consultant delivers at handoff: the morning screen, the two rules, and the money conversation.</p>
+      <p class="module-links"><a href="onboarding-script.html">Open the New Client Onboarding Script</a></p>
+    </div>
+  </div>
+
+  <!-- ============ CHART SOURCE DATA ============ -->
+  <h2>Chart Source Data - ComfortFlow HVAC (Demo)</h2>
+  <p class="text-small text-muted">Every chart above links here. These are the exact numbers each chart draws, so the picture can always be audited against the figures.</p>
+
+  <h3 class="jump-target" id="data-meetings-vs-notes">Data Table: Client Meetings vs Notes Delivered - ComfortFlow HVAC, by Week</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Week of</th><th>Meetings scheduled</th><th>Notes delivered</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Jun 29</td><td class="num">6</td><td class="num">6</td></tr>
+      <tr><td>Jul 6</td><td class="num">6</td><td class="num">6</td></tr>
+      <tr><td>Jul 13</td><td class="num">6</td><td class="num">6</td></tr>
+      <tr><td>Jul 20</td><td class="num">7</td><td class="num">6</td></tr>
+      <tr><td>Jul 27</td><td class="num">7</td><td class="num">7</td></tr>
+      <tr><td>Aug 3</td><td class="num">6</td><td class="num">6</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="jump-target" id="data-completion-rate">Data Table: Action-Item Completion Rate - ComfortFlow HVAC, August to Date</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Status</th><th>Action items</th><th>Share</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Closed</td><td class="num">19</td><td class="num">68%</td></tr>
+      <tr><td>Still open</td><td class="num">9</td><td class="num">32%</td></tr>
+      <tr><td><strong>Total tracked in August</strong></td><td class="num"><strong>28</strong></td><td class="num"><strong>100%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="jump-target" id="data-open-closed">Data Table: Open vs Closed Action Items - ComfortFlow HVAC, August to Date</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Status</th><th>Action items</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Closed</td><td class="num">19</td></tr>
+      <tr><td>Open</td><td class="num">9</td></tr>
+      <tr><td><strong>Total tracked</strong></td><td class="num"><strong>28</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="jump-target" id="data-decisions-week">Data Table: Decisions Logged per Week - ComfortFlow HVAC, Last 6 Weeks</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Week of</th><th>Decisions logged</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Jun 29</td><td class="num">4</td></tr>
+      <tr><td>Jul 6</td><td class="num">5</td></tr>
+      <tr><td>Jul 13</td><td class="num">6</td></tr>
+      <tr><td>Jul 20</td><td class="num">7</td></tr>
+      <tr><td>Jul 27</td><td class="num">8</td></tr>
+      <tr><td>Aug 3</td><td class="num">11</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="jump-target" id="data-loop-aging">Data Table: Open Loops by Age Bucket - ComfortFlow HVAC Aging Watch</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Age bucket</th><th>Open loops</th><th>Loops in the bucket</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0 - 3 days</td><td class="num">0</td><td>None right now</td></tr>
+      <tr><td>4 - 7 days</td><td class="num">2</td><td>Brentwood Dental quote (6 days) · Rose Quarter proposal (6 days)</td></tr>
+      <tr><td>8+ days</td><td class="num">1</td><td>Airex credit memo (11 days, chase today)</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="jump-target" id="data-delivery-minutes">Data Table: Minutes from Meeting End to Notes Delivered - ComfortFlow HVAC, Aug 3 - 9</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Meeting</th><th>Date</th><th>Minutes to notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Weekly Ops Huddle (team)</td><td>Mon, Aug 3</td><td class="num">21</td></tr>
+      <tr><td>Commercial Bid Review - Rose Quarter Office Park</td><td>Tue, Aug 4</td><td class="num">18</td></tr>
+      <tr><td>Install Crew Standup</td><td>Wed, Aug 5</td><td class="num">14</td></tr>
+      <tr><td>Customer Escalation Review - Maple St</td><td>Thu, Aug 6</td><td class="num">34</td></tr>
+      <tr><td>Sales Pipeline Review</td><td>Fri, Aug 7</td><td class="num">24</td></tr>
+      <tr><td>Safety &amp; Training - Refrigerant Handling</td><td>Fri, Aug 7</td><td class="num">21</td></tr>
+      <tr><td><strong>Average</strong></td><td></td><td class="num"><strong>22</strong></td></tr>
+    </tbody>
+  </table>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="footer-brand">FreedomAIOS · MeetingOS</p>
+    <p>Example client dashboard: ComfortFlow HVAC is a fictional company and all figures are demo data. Maintained under the MeetingOS monthly plan. Questions go to your consultant, not a support queue. <a href="../index.html">Back to all operating systems</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

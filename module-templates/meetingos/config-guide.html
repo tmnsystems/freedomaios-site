@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Client Setup Guide - MeetingOS (Consultant-Facing)</title>
+<link rel="icon" href="../shared/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../shared/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../shared/assets/apple-touch-icon-180.png">
+<link rel="stylesheet" href="../../shared/theme.css">
+<script src="../../shared/theme.js"></script>
+<script src="../shared/charts.js"></script>
+<style>
+  /* Layout only. All colors from shared/theme.css variables. */
+  .module-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: var(--font-heading);
+    font-size: 0.72em;
+    margin: 0 0 8px;
+  }
+  .step-num {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 0.72em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 4px;
+  }
+  .checklist {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.88em;
+  }
+  .checklist li {
+    padding-left: 1.8em;
+    text-indent: -1.8em;
+    margin: 0.5em 0;
+  }
+  .checklist li::before {
+    content: "\2610\00a0\00a0";
+    font-family: var(--font-heading);
+    color: var(--gold);
+    font-weight: bold;
+  }
+  code, .code-inline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.82em;
+    background-color: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+  .code-block {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.72em;
+    background-color: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--navy);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.5;
+  }
+  .folder-tree {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75em;
+    line-height: 1.7;
+    background-color: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    overflow-x: auto;
+    white-space: pre;
+  }
+</style>
+<!-- Canonical base is https://freedomaios.com (future public home, not live yet). Per SITE-PACKAGE-STANDARD.md: per-page JSON-LD for search + AI comprehension. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://freedomaios.com/#organization",
+      "name": "FreedomAIOS",
+      "url": "https://freedomaios.com/",
+      "description": "FreedomAIOS builds AI operating systems for small businesses - audits, templates, and agent skills that turn AI into working business systems."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://freedomaios.com/#website",
+      "url": "https://freedomaios.com/",
+      "name": "FreedomAIOS",
+      "publisher": {
+        "@id": "https://freedomaios.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://freedomaios.com/module-templates/meetingos/config-guide.html#webpage",
+      "url": "https://freedomaios.com/module-templates/meetingos/config-guide.html",
+      "name": "New Client Setup Guide - MeetingOS (Consultant-Facing)",
+      "description": "Consultant-facing setup guide: zero-to-working in about 60 minutes per client. Built on the shipped zoom-transcript-fetch skill.",
+      "isPartOf": {
+        "@id": "https://freedomaios.com/#website"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <img class="brand-logo brand-logo-lg" src="../shared/assets/logo-transparent.png" alt="FreedomAIOS - Take The Road Less Traveled">
+    <h1>New Client Setup Guide - MeetingOS (Consultant-Facing)</h1>
+    <p class="tagline">Consultant-facing. Zero-to-working in about 60 minutes per client. Built on the shipped zoom-transcript-fetch skill - this guide productizes it.</p>
+  </div>
+</header>
+
+<main class="page dense">
+
+  <nav class="module-nav">
+    <a href="../index.html">All Operating Systems</a>
+    <a href="dashboard.html">Client Meeting Dashboard</a>
+    <a href="config-guide.html">New Client Setup Guide</a>
+    <a href="maintenance-checklist.html">Monthly Maintenance Checklist</a>
+    <a href="roi-calculator.html">Savings &amp; ROI Calculator</a>
+    <a href="onboarding-script.html">New Client Onboarding Script</a>
+  </nav>
+
+  <div class="callout">
+    <p><strong>Architecture in one paragraph.</strong> MeetingOS is a per-client digital employee: a scoped agent whose entire brain is one folder. That folder holds the client's briefing file, the transcripts it fetches, the notes it writes, and a small state file so it remembers where it left off. The agent's allow-list - its key card - opens that one folder and the client's Zoom account. Nothing else. If you keep that shape, the module stays debuggable forever.</p>
+  </div>
+
+  <!-- ============ SETUP TIME AT A GLANCE ============ -->
+  <h2>Setup Time at a Glance - MeetingOS New Client Install</h2>
+  <div class="chart-grid">
+    <div class="card chart-card card-compact">
+      <a class="chart-link" href="#data-setup-time">
+        <h3>Consultant Minutes per Setup Step - MeetingOS New Client Install</h3>
+        <p class="chart-sub">Budget for the six steps below. Real installs land near 60 minutes because the Step 4 verification runs during Zoom's processing wait.</p>
+        <div class="fchart" data-chart="bar" role="img" aria-label="Bar chart of budgeted consultant minutes per MeetingOS setup step, totaling about 65 minutes" data-config='{"labels":["Step 1","Step 2","Step 3","Step 4","Step 5","Step 6"],"series":[{"name":"Budgeted minutes","values":[15,5,10,10,10,15]}],"compact":true}'></div>
+        <p class="chart-cta">View the numbers &darr;</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ STEP 1 ============ -->
+  <div class="card card-accent">
+    <p class="step-num">Step 1 · ~15 min</p>
+    <h3 class="mt-0">Create the Client's Zoom Server-to-Server OAuth App</h3>
+    <p>MeetingOS fetches transcripts through the Zoom API using a Server-to-Server OAuth app on the <em>client's</em> Zoom account. JWT apps are deprecated - never use them. There is no per-user OAuth flow, no redirect URIs, no refresh tokens.</p>
+    <ol>
+      <li>Have the client sign in at <code>marketplace.zoom.us</code> (they must be an account admin).</li>
+      <li><strong>Develop → Build App → Server-to-Server OAuth → Create.</strong> Name it <code>MeetingOS Transcript Fetch</code>.</li>
+      <li>Copy the three credentials from the Information page: <strong>Account ID, Client ID, Client Secret.</strong></li>
+      <li>On the Scopes page, add exactly these five:
+        <ul>
+          <li><code>meeting:read:meeting:admin</code></li>
+          <li><code>meeting:read:list_meetings:admin</code></li>
+          <li><code>meeting:read:past_meeting:admin</code> - required for the instances call under granular scopes</li>
+          <li><code>user:read:user:admin</code></li>
+          <li><code>user:read:list_users:admin</code></li>
+        </ul>
+      </li>
+      <li><strong>Activate the app.</strong> A non-activated app is the most common day-one failure.</li>
+    </ol>
+    <ul class="checklist">
+      <li>App created on the client's own Zoom account (not yours)</li>
+      <li>Five scopes added, app activated</li>
+      <li>Three credentials copied into your password manager, labeled with the client name</li>
+    </ul>
+  </div>
+
+  <!-- ============ STEP 2 ============ -->
+  <div class="card card-accent">
+    <p class="step-num">Step 2 · ~5 min</p>
+    <h3 class="mt-0">Turn On Zoom AI Companion Transcript Retention</h3>
+    <p>Zoom has <strong>two completely separate transcript systems</strong>, and querying the wrong one silently returns empty results. MeetingOS uses <strong>AI Companion transcripts</strong> - they do not require cloud recording, which is why they work for clients who record locally or not at all.</p>
+    <ol>
+      <li>In the client's Zoom web portal (<code>zoom.us</code>), as admin: <strong>Settings → AI Companion.</strong></li>
+      <li>Turn ON <strong>"Allow meeting hosts to retain and access meeting transcripts."</strong></li>
+      <li>Recommended: <strong>Meeting Summary → "Automatically start"</strong> so transcripts generate without the host remembering anything.</li>
+    </ol>
+    <div class="callout callout-warn">
+      <p><strong>Sanity check before touching the API:</strong> after the client's next meeting, the portal's <strong>Recordings &amp; Transcripts → Transcripts</strong> section must list the transcript. If it appears there, the API can fetch it. If it does not, no API call will ever find it - fix this setting first. (If the client uses Cloud Recording transcripts instead - a <code>.vtt</code> attached to recordings - that is the other system; the fetch script targets AI Companion only.)</p>
+    </div>
+  </div>
+
+  <!-- ============ STEP 3 ============ -->
+  <div class="card card-accent">
+    <p class="step-num">Step 3 · ~10 min</p>
+    <h3 class="mt-0">Build the Client Folder - the Digital Employee's Brain</h3>
+    <p>The folder is the memory. No database, no embeddings. One folder per client, and the agent's allow-list opens only that folder - that is the scope guard between clients. Structure:</p>
+    <div class="folder-tree">clients/
+└── comfortflow-hvac/              ← one folder per client
+    ├── CLAUDE.md                  ← the briefing: who they are, meeting
+    │                                series, note style, delivery rules
+    ├── config.yaml                ← client variables: names, emails,
+    │                                meeting schedule, thresholds
+    ├── .env                       ← ZOOM_ACCOUNT_ID / CLIENT_ID / SECRET
+    │                                (chmod 600, never committed to git)
+    ├── transcripts/               ← raw .vtt files, fetched once each
+    │   └── 2026-08-03_weekly-ops-huddle.vtt
+    ├── notes/                     ← finished notes, date + topic + style
+    │   └── 2026-08-03_weekly-ops-huddle_detailed-third-person.md
+    ├── state/
+    │   ├── .fetched_instances.json  ← dedup: every transcript lands once
+    │   └── last-check.json          ← what happened since the last run
+    └── dashboard/
+        └── index.html             ← the client's morning dashboard</div>
+    <p><span class="code-inline">CLAUDE.md</span> is the standard briefing: company context, who attends which recurring meeting, which note style each meeting series gets, and where notes are delivered. <span class="code-inline">last-check.json</span> is what separates a real employee from a goldfish - without it the agent cannot tell a new transcript from one it already processed, and it has no record of its own previous actions.</p>
+    <ul class="checklist">
+      <li>Client folder created from the MeetingOS master template</li>
+      <li><code>.env</code> filled in, <code>chmod 600</code>, confirmed outside any committed tree</li>
+      <li><code>CLAUDE.md</code> written with the client's real meeting series and people</li>
+    </ul>
+  </div>
+
+  <!-- ============ STEP 4 ============ -->
+  <div class="card card-accent">
+    <p class="step-num">Step 4 · ~10 min</p>
+    <h3 class="mt-0">First Transcript Test Run + Dedup Verification</h3>
+    <p>From the client folder, run the fetch script once, manually, verbose:</p>
+    <div class="code-block">ZOOM_ENV_FILE=.env python3 scripts/zoom_fetch_latest.py --verbose --once</div>
+    <table>
+      <thead>
+        <tr><th>Output</th><th>Meaning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>Fetched: &lt;topic&gt; (...) - N words</code></td><td>Working. Transcript saved to <code>transcripts/</code>.</td></tr>
+        <tr><td><code>No new Zoom transcripts... All caught up.</code></td><td>Working. Nothing new in the lookback window.</td></tr>
+        <tr><td><code>Missing required config</code></td><td><code>.env</code> not loaded - check the <code>ZOOM_ENV_FILE</code> path.</td></tr>
+        <tr><td><code>HTTP 401</code></td><td>Credentials wrong, or app not activated (Step 1).</td></tr>
+        <tr><td><code>401 mentioning scopes on the instances call</code></td><td>The past-meetings read scope is missing - re-add scopes, re-activate.</td></tr>
+        <tr><td>Nothing found, but transcripts exist in the portal</td><td>The instance-UUID / double-encoding pitfall - see the pitfalls table below.</td></tr>
+      </tbody>
+    </table>
+    <p>Then run the identical command a second time. It must print <code>All caught up.</code> - that proves dedup state is being written to <code>state/.fetched_instances.json</code> and no client ever gets the same notes twice.</p>
+    <ul class="checklist">
+      <li><code>GET /users/me</code> with the token returns the user profile (OAuth works)</li>
+      <li>First verbose run exits 0 with a status line</li>
+      <li>Second run prints "All caught up" (dedup confirmed)</li>
+    </ul>
+  </div>
+
+  <!-- ============ STEP 5 ============ -->
+  <div class="card card-accent">
+    <p class="step-num">Step 5 · ~10 min</p>
+    <h3 class="mt-0">Schedule the Transcript Fetch</h3>
+    <p>Schedule runs for shortly after each recurring call ends. The script retries every 5 minutes for up to ~40 minutes while Zoom processes, so it tolerates meetings that run long - and a meeting still in progress at job time is handled by polling inside that wait window, not by exiting. Example crontab for a client with Mon 1:00 PM, Wed 11:00 AM, Thu 1:00 PM calls:</p>
+    <div class="code-block">15 13 * * 1  ZOOM_ENV_FILE=/full/path/.env python3 /full/path/scripts/zoom_fetch_latest.py
+0  12 * * 3  ZOOM_ENV_FILE=/full/path/.env python3 /full/path/scripts/zoom_fetch_latest.py
+30 13 * * 4  ZOOM_ENV_FILE=/full/path/.env python3 /full/path/scripts/zoom_fetch_latest.py</div>
+    <p>launchd (macOS LaunchAgent with <code>StartCalendarInterval</code>) or an agent-runtime scheduler both work - the script prints only when it fetches or hits a real error, so silent runs are safe. Set <code>TZ_NAME</code> (e.g. <code>America/Los_Angeles</code>) so the lookback window and filenames match the client's meeting times.</p>
+    <p class="text-small">Tuning knobs: <code>ZOOM_TRANSCRIPT_DIR</code>, <code>ZOOM_STATE_FILE</code>, <code>ZOOM_LOOKBACK_DAYS</code> (default 3), <code>ZOOM_MAX_WAIT_MINUTES</code> (default 40), <code>--once</code> for manual runs.</p>
+  </div>
+
+  <!-- ============ STEP 6 ============ -->
+  <div class="card card-accent">
+    <p class="step-num">Step 6 · ~15 min</p>
+    <h3 class="mt-0">Meeting Note Formatting Rules + Delivery Destinations</h3>
+    <p>The <code>.vtt</code> is raw material. The agent reads it (strip timestamps; speaker labels are the <code>Name:</code> prefix), applies a note style, and delivers. Long transcripts may need chunking at roughly 15k words per pass - extract per chunk, merge sections.</p>
+    <table>
+      <caption>Pick one style per meeting series - ask the client, don't guess</caption>
+      <thead>
+        <tr><th>Style</th><th>Best for</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Bullet Summary</strong></td><td>Fast reads, internal teams (standups, huddles)</td></tr>
+        <tr><td><strong>Detailed Third-Person</strong></td><td>Clients or stakeholders who missed the call</td></tr>
+        <tr><td><strong>Action Items Only</strong></td><td>Weekly reviews where decisions are already understood</td></tr>
+        <tr><td><strong>Coaching Tracker</strong></td><td>Recurring advisory calls needing cross-session continuity</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Delivery destinations</strong> (configure per client in <code>config.yaml</code>):</p>
+    <ul>
+      <li><strong>Email</strong> - the morning brief. Always on. Recipients and send-time are client variables.</li>
+      <li><strong>Dashboard</strong> - the client folder's <code>dashboard/index.html</code>, updated after every meeting.</li>
+      <li><strong>Google Docs</strong> (optional) - created via the Drive API and formatted; a plain-text Google Doc is a failed delivery. One folder per meeting series.</li>
+      <li><strong>Notion</strong> (optional) - one database for all notes, properties for date, topic, style.</li>
+      <li><strong>Local markdown</strong> - the zero-config default: <code>notes/YYYY-MM-DD_&lt;topic&gt;_&lt;style&gt;.md</code>.</li>
+    </ul>
+    <p><strong>Standing formatting rules:</strong> name every file and page with date + topic + style so they sort chronologically, and every note links back to its source <code>.vtt</code> path so it is auditable against the raw transcript.</p>
+  </div>
+
+  <!-- ============ PITFALLS ============ -->
+  <h2>Zoom Transcript Pitfalls That Will Burn You</h2>
+  <div class="card card-navy">
+    <table>
+      <thead>
+        <tr><th>Pitfall</th><th>Symptom / Fix</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Wrong UUID type</strong> - the scheduled UUID instead of the instance UUID</td>
+          <td>Error 3323 "transcript does not exist." Use the <em>instance</em> UUID from <code>GET /past_meetings/{id}/instances</code>. The most common failure.</td>
+        </tr>
+        <tr>
+          <td><strong>Single-encoding the instance UUID</strong></td>
+          <td>UUIDs containing <code>/</code> 404 unless <strong>double</strong> URL-encoded.</td>
+        </tr>
+        <tr>
+          <td><strong>Parsing <code>instances</code> from the instances response</strong></td>
+          <td>The response key is <code>meetings</code>, not <code>instances</code>. A parser looking for <code>instances</code> reports zero meetings.</td>
+        </tr>
+        <tr>
+          <td><strong>Querying Cloud Recordings on a local-recording account</strong></td>
+          <td>Returns zero by design. Check the portal first to learn which of the two transcript systems the account actually uses.</td>
+        </tr>
+        <tr>
+          <td><strong>Transcript processing lag</strong></td>
+          <td>The endpoint 404s right after a meeting ends. Retry every 5 min for up to ~40 min - the script does this internally.</td>
+        </tr>
+        <tr>
+          <td><strong>"Fixing" the empty-pending case</strong></td>
+          <td>An instance is not listed until the meeting ENDS. Never add live-meeting checks or early exits - that reintroduces the miss.</td>
+        </tr>
+        <tr>
+          <td><strong>Token in download URL</strong></td>
+          <td>Zoom takes the OAuth token as a query parameter on the transcript download - it can land in proxy logs. It expires in one hour and is read-only, but know it happens.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============ HANDOFF ============ -->
+  <h2>Done When - New Client Handoff Checklist</h2>
+  <div class="card">
+    <ul class="checklist">
+      <li>Verbose run exits 0; second run says "All caught up"</li>
+      <li>Scheduler entries installed and confirmed with a manual trigger</li>
+      <li>One real transcript processed end-to-end into the chosen style and destination - <strong>and a human reviewed the output</strong></li>
+      <li>Morning email delivered to the client's real inbox at the agreed time</li>
+      <li>Dashboard updating from real meetings</li>
+      <li><code>.env</code> outside git; credentials in the vault labeled with the client name</li>
+      <li>Client walked through with the 30-minute onboarding script</li>
+    </ul>
+    <p class="text-small text-muted mb-0">Budget: about 60 minutes of consultant time once the client provides Zoom admin access. The wait is usually the client's admin, not the work.</p>
+  </div>
+
+  <!-- ============ CHART SOURCE DATA ============ -->
+  <h2>Chart Source Data - MeetingOS New Client Install</h2>
+  <p class="text-small text-muted">The chart above links here. These are the exact numbers it draws.</p>
+
+  <h3 class="jump-target" id="data-setup-time">Data Table: Consultant Minutes per Setup Step - MeetingOS New Client Install</h3>
+  <table class="table-compact">
+    <thead>
+      <tr><th>Step</th><th>What it covers</th><th>Budgeted minutes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Step 1</td><td>Zoom Server-to-Server OAuth app on the client's account</td><td class="num">15</td></tr>
+      <tr><td>Step 2</td><td>AI Companion transcript retention turned on</td><td class="num">5</td></tr>
+      <tr><td>Step 3</td><td>Client folder built from the master template</td><td class="num">10</td></tr>
+      <tr><td>Step 4</td><td>First transcript test run and dedup verification</td><td class="num">10</td></tr>
+      <tr><td>Step 5</td><td>Transcript fetch scheduled after each recurring call</td><td class="num">10</td></tr>
+      <tr><td>Step 6</td><td>Note styles and delivery destinations configured</td><td class="num">15</td></tr>
+      <tr><td><strong>Total budget</strong></td><td>Runs nearer 60 minutes with overlapped waits</td><td class="num"><strong>65</strong></td></tr>
+    </tbody>
+  </table>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="footer-brand">FreedomAIOS · MeetingOS</p>
+    <p>Consultant-facing setup guide. Mechanics verified against the shipped zoom-transcript-fetch skill (v1.0.0). ComfortFlow HVAC references are fictional.</p>
+  </div>
+</footer>
+
+</body>
+</html>

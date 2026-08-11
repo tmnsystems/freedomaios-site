@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The AIOS Audit Call: 60 Minutes That Show You Where the Money Goes | FreedomAIOS</title>
-<meta name="description" content="A 60-minute phone call with a senior FreedomAIOS strategist. You hang up knowing exactly where your business loses money, time, and energy, and what to fix first. $297 flat.">
+<title>The AIOS Audit Call: 60 Minutes, Your Real Numbers, One Written Plan | FreedomAIOS</title>
+<meta name="description" content="A 60-minute live working session with a senior FreedomAIOS strategist. We go through your real numbers together, on the call. You hang up with a Freedom Roadmap. $297 flat.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="The AIOS Audit Call: 60 Minutes That Show You Where the Money Goes">
-<meta property="og:description" content="One working session with a senior FreedomAIOS strategist. You leave with a written Freedom Roadmap: what is broken, what it costs you, what to fix first. $297 flat.">
+<meta property="og:title" content="The AIOS Audit Call: 60 Minutes, Your Real Numbers, One Written Plan">
+<meta property="og:description" content="A live working session with a senior FreedomAIOS strategist. You leave with a written Freedom Roadmap: what is broken, what it costs you, what to fix first. $297 flat.">
 <meta property="og:image" content="../assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The AIOS Audit Call: 60 Minutes That Show You Where the Money Goes">
-<meta name="twitter:description" content="One working session with a senior FreedomAIOS strategist. You leave with a written Freedom Roadmap. $297 flat.">
+<meta name="twitter:title" content="The AIOS Audit Call: 60 Minutes, Your Real Numbers, One Written Plan">
+<meta name="twitter:description" content="A live working session with a senior FreedomAIOS strategist. You leave with a written Freedom Roadmap. $297 flat.">
 <meta name="twitter:image" content="../assets/img/og-image.png">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
@@ -74,10 +74,10 @@
   }
   .hook .headline {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 34px;
+    font-size: 36px;
     font-weight: 900;
-    line-height: 1.3;
-    color: #1B3A5C;
+    line-height: 1.25;
+    color: #A80000;
     text-align: center;
     text-wrap: balance;
     margin-bottom: 16px;
@@ -90,20 +90,13 @@
     color: #111111;
     text-align: center;
   }
-  h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: #1B3A5C;
-    margin-bottom: 24px;
-  }
   h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 700;
     line-height: 1.3;
     color: #1B3A5C;
+    text-align: left;
     margin-top: 48px;
     margin-bottom: 18px;
   }
@@ -113,6 +106,16 @@
   a { color: #2E6DA4; text-decoration: underline; }
   a:visited { color: #2E6DA4; }
   .hl { background-color: #FFF066; padding: 0 2px; }
+  .prep {
+    margin: 28px 0;
+    padding: 28px 32px;
+    background: #FFFFFF;
+    border: 1px solid rgba(27, 58, 92, 0.28);
+    border-left: 6px solid #1B3A5C;
+    box-shadow: 0 4px 20px rgba(27, 58, 92, 0.10);
+  }
+  .prep ul { margin-bottom: 12px; }
+  .prep .prep-note { font-size: 15px; color: #666666; margin-bottom: 0; }
   .price-band {
     margin: 40px 0;
     padding: 32px;
@@ -166,14 +169,28 @@
     box-shadow: 0 4px 20px rgba(27, 58, 92, 0.10);
   }
   .asset-wrap img { width: 100%; display: block; }
-  .crosslink {
+  .downsell {
     margin-top: 48px;
-    padding: 24px 28px;
+    padding: 28px 32px;
     background: #FFFFFF;
-    border: 1px solid rgba(27, 58, 92, 0.16);
-    font-size: 16px;
+    border: 1px solid rgba(27, 58, 92, 0.28);
+    border-left: 6px solid #D9A441;
+    box-shadow: 0 4px 20px rgba(27, 58, 92, 0.10);
   }
-  .crosslink strong { color: #1B3A5C; }
+  .downsell h2 { margin-top: 0; }
+  .downsell .btn {
+    display: inline-block;
+    background: #D9A441;
+    color: #1B3A5C;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 14px 28px;
+    border: none;
+    margin-top: 8px;
+  }
+  .downsell .btn:hover { background: #C79335; }
   footer {
     max-width: 760px;
     margin: 0 auto;
@@ -193,9 +210,10 @@
       border-left: none;
       border-right: none;
     }
-    .hook .headline { font-size: 26px; }
+    .hook .headline { font-size: 27px; }
     .hook .subhead { font-size: 18px; }
     .price-band .amount { font-size: 40px; }
+    .prep, .downsell { padding: 22px 20px; }
     footer { padding: 24px 24px 40px; }
   }
 </style>
@@ -215,7 +233,7 @@
       "@id": "https://freedomaios.com/audit/#webpage",
       "url": "https://freedomaios.com/audit/",
       "name": "The AIOS Audit Call",
-      "description": "A 60-minute phone call with a senior FreedomAIOS strategist. You hang up knowing exactly where your business loses money, time, and energy, and what to fix first.",
+      "description": "A 60-minute live working session with a senior FreedomAIOS strategist. You hang up knowing exactly where your business loses money, time, and energy, and what to fix first.",
       "isPartOf": { "@id": "https://freedomaios.com/#website" },
       "about": { "@id": "https://freedomaios.com/audit/#product" }
     },
@@ -223,7 +241,7 @@
       "@type": "Product",
       "@id": "https://freedomaios.com/audit/#product",
       "name": "FreedomAIOS AIOS Audit Call",
-      "description": "A 60-minute one-on-one deep-dive phone call with a senior FreedomAIOS strategist. The owner leaves with a written Freedom Roadmap: what is broken, what it costs every month, and what to fix first.",
+      "description": "A 60-minute live working session with a senior FreedomAIOS strategist. The strategist goes through the owner's real numbers with them on the call, and the owner leaves with a written Freedom Roadmap: what is broken, what it costs every month, and what to fix first.",
       "brand": { "@id": "https://freedomaios.com/#organization" },
       "offers": {
         "@type": "Offer",
@@ -248,50 +266,46 @@
 
   <div class="hook">
     <div class="prehead">For owners doing $50K or more a month:</div>
-    <div class="headline">One 60-Minute Phone Call. You Hang Up Knowing Exactly Where the Money Goes, and What to Fix First.</div>
-    <div class="subhead">A senior FreedomAIOS strategist walks through your operation with you, finds the leaks, and hands you a written plan.</div>
+    <div class="headline">Sixty Minutes. Your Real Numbers. <span class="hl">One Written Plan.</span></div>
+    <div class="subhead">A senior FreedomAIOS strategist goes through your numbers with you, live on the call. You hang up knowing where the money goes and what to fix first.</div>
   </div>
 
-  <h1>The AIOS Audit Call</h1>
+  <h2>What You Are Booking</h2>
 
-  <p>This is a working session, not a sales call. You get on the phone with a senior FreedomAIOS strategist for 60 minutes. Before the call, your strategist studies your answers to a short business questionnaire. During the call, you map how work and money actually move through your business: where the hours go, where the cash leaks, which bottleneck is costing you the most.</p>
+  <p>This is a working session, not a presentation. The audit happens <strong>live, on the call</strong>. Your strategist walks through your operation with you in real time: where the hours go, where the cash leaks, which bottleneck is costing you the most. Nothing generic. We work on <span class="hl">your business, with your data, while you are on the line.</span></p>
 
-  <p>Then the call ends, and you get the deliverable in writing. We call it the <strong>Freedom Roadmap</strong>. It says what is broken, what each problem costs you every month it stays broken, and what to fix first.</p>
-
-  <h2>What You Walk Away With</h2>
+  <p>Then you get the deliverable in writing. We call it the <strong>Freedom Roadmap</strong>. It says what is broken, what each problem costs you every month it stays broken, and what to fix first.</p>
 
   <ul>
-    <li><strong>A clear picture of the leaks.</strong> Where your business loses money, time, and energy, named and priced in your own numbers.</li>
+    <li><strong>The leaks, named and priced.</strong> Where your business loses money, time, and energy, in your own numbers.</li>
     <li><strong>A ranked fix list.</strong> What to fix first, what to fix second, and what to leave alone for now.</li>
-    <li><strong>The cost of waiting.</strong> What each open leak costs per month, so you can decide with real math instead of gut feel.</li>
-    <li><strong>A plan you own.</strong> The roadmap is yours. Execute it yourself, hand it to your team, or bring it to anyone you like. <span class="hl">It is yours whether or not we ever work together again.</span></li>
+    <li><strong>The cost of waiting.</strong> What each open leak costs per month, so you decide with real math.</li>
+    <li><strong>A plan you own.</strong> Execute it yourself, hand it to your team, or bring it to anyone you like. It is yours whether or not we ever work together again.</li>
   </ul>
 
   <div class="asset-wrap">
     <img src="../assets/img/roadmap.png" alt="Freedom Roadmap: the written plan you receive after the audit call">
   </div>
 
-  <h2>How the 60 Minutes Work</h2>
+  <h2>How to Get the Most From Your Hour</h2>
 
-  <ol>
-    <li><strong>Before the call.</strong> You answer a short questionnaire about your business. Your strategist reviews every answer before you ever get on the phone, so no minute of the call is spent on basics.</li>
-    <li><strong>The baseline.</strong> You establish where the business actually stands, in real numbers. Historical data does not flatter anyone.</li>
-    <li><strong>The hourly math.</strong> You calculate what your time is actually worth and where it actually goes. For most owners this is the first shock of the call.</li>
-    <li><strong>The pipeline map.</strong> You lay out how work and money move through the business. Most owners have never seen this in front of them.</li>
-    <li><strong>The roadmap.</strong> You agree on what is broken and the order to fix it. The written Freedom Roadmap follows the call.</li>
-  </ol>
+  <p>Your strategist works with what you can open on the call. The more of your real data you have at your fingertips, the more of your hour goes to finding money instead of hunting for numbers. Come ready to log in to:</p>
 
-  <h2>Who This Call Is For</h2>
+  <div class="prep">
+    <ul>
+      <li><strong>Your merchant accounts and sales data.</strong> Stripe, PayPal, Shopify, or whatever processor you use.</li>
+      <li><strong>Your CRM or customer list.</strong> Where your buyers and leads actually live.</li>
+      <li><strong>Your ad and channel dashboards.</strong> Wherever you spend money or time to get customers.</li>
+      <li><strong>Your expenses and subscriptions.</strong> The list of what you pay for every month.</li>
+    </ul>
+    <p class="prep-note">Have your logins ready before we start. You can share your screen or read the numbers out, whichever is easier for you. Everything you show stays between you and your strategist.</p>
+  </div>
 
-  <p>This call is built for businesses doing <strong>$50K or more a month</strong>. At that level, a single found leak usually pays back the fee many times over in the first month.</p>
-
-  <p>It is not for everyone. If you are doing $10K to $49K a month, the <a href="../assessment/">$97 AIOS Assessment</a> gets you the same style of diagnosis without the call. Under $10K a month, start with our <a href="../module-templates/">free template library</a>. A paid audit would be a bad investment for you right now, and we do not take money we cannot return in value.</p>
-
-  <h2>What the Audit Costs</h2>
+  <h2>Book Your Audit Call</h2>
 
   <div class="price-band">
     <div class="amount">$297</div>
-    <div class="label">One flat price. One call. One written roadmap.</div>
+    <div class="label">One flat price. One 60-minute call. One written roadmap.</div>
     <div class="cta">
       <!-- TODO ASHTRID: GHL checkout embed goes here -->
       <button type="button" class="btn" onclick="alert('Checkout is being connected. The GoHighLevel checkout embed goes here.')">Book My Audit Call: $297</button>
@@ -299,10 +313,10 @@
     <p class="cta-note">You book, you get on the phone, you leave with the plan. If the call cannot show you at least one way to generate or save <strong>$1,000</strong>, you do not pay. No fine print. No forms.</p>
   </div>
 
-  <p>Clients pay <strong>$1,000 an hour</strong> for ongoing working sessions with our senior strategists. This audit is that same session, distilled into one flat-price diagnosis, because it is the first step toward a custom FreedomAIOS built, installed, and maintained for you. There is no obligation to buy anything after the call, and the call itself is not spent pitching you.</p>
-
-  <div class="crosslink">
-    <strong>Not ready for the call?</strong> The <a href="../assessment/">AIOS Assessment</a> is a $97 automated diagnostic, reviewed by a human before delivery. Same rubric. No phone required.
+  <div class="downsell">
+    <h2>If the Call Is Not the Right Fit Right Now</h2>
+    <p>The <strong>$97 AIOS Assessment</strong> is the other path to the same diagnosis. You answer the questions online, our rubric scores your operation, and a human reviews every report before it reaches you. No call required.</p>
+    <a class="btn" href="../assessment/">See the $97 AIOS Assessment</a>
   </div>
 
 </div>

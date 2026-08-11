@@ -6,13 +6,13 @@
 <meta name="description" content="Losing money, time, and energy to problems you can't see? One working session. You leave with a Freedom Roadmap: what to fix first, and how.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Are You Losing Money, Time, and Energy to Problems You Can't Even See?">
-<meta property="og:description" content="You leave with a Freedom Roadmap: what's broken, what it costs you, what to fix first. $300, and if I can't find you $1,000, you don't pay.">
+<meta property="og:description" content="You leave with a Freedom Roadmap: what's broken, what it costs you, what to fix first. $297, and if I can't find you $1,000, you don't pay.">
 <meta property="og:image" content="assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Are You Losing Money, Time, and Energy to Problems You Can't Even See?">
-<meta name="twitter:description" content="You leave with a Freedom Roadmap: what's broken, what it costs you, what to fix first. $300, and if I can't find you $1,000, you don't pay.">
+<meta name="twitter:description" content="You leave with a Freedom Roadmap: what's broken, what it costs you, what to fix first. $297, and if I can't find you $1,000, you don't pay.">
 <meta name="twitter:image" content="assets/img/og-image.png">
 <link rel="icon" href="./favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
@@ -435,6 +435,122 @@
     .hl-main, .hl-main span { font-size: 32px; }
     .hook .subhead { font-size: 19px; }
   }
+  /* ==================== QUALIFIER MODAL ==================== */
+  .qual-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(27, 58, 92, 0.55);
+    z-index: 9000;
+    padding: 24px 16px;
+    overflow-y: auto;
+  }
+  .qual-overlay.open { display: block; }
+  .qual-modal {
+    max-width: 620px;
+    margin: 40px auto;
+    background: #FAFAF8;
+    border: 1px solid rgba(27, 58, 92, 0.28);
+    box-shadow: 0 24px 64px rgba(27, 58, 92, 0.30);
+    padding: 36px 40px 32px;
+    position: relative;
+  }
+  .qual-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    line-height: 1;
+    color: #666666;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+  .qual-close:hover { color: #1B3A5C; }
+  .qual-progress-label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #666666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .qual-progress-bar {
+    height: 3px;
+    background: #E0DDD6;
+    margin-bottom: 28px;
+  }
+  .qual-progress-fill {
+    height: 100%;
+    background: #1B3A5C;
+    width: 0;
+    transition: width 0.3s ease;
+  }
+  .qual-question {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #1B3A5C;
+    margin-bottom: 22px;
+  }
+  .qual-option {
+    display: block;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #E0DDD6;
+    padding: 15px 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #2B2B2B;
+    text-align: left;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .qual-option:hover, .qual-option:focus {
+    border-color: #1B3A5C;
+    box-shadow: 0 4px 20px rgba(27, 58, 92, 0.10);
+    outline: none;
+  }
+  .qual-back {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #666666;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+  .qual-result h2 {
+    margin-top: 0;
+  }
+  .qual-result .btn {
+    display: inline-block;
+    background: #1B3A5C;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 16px 32px;
+    border: none;
+    margin-top: 8px;
+  }
+  .qual-result .btn:hover { background: #14304D; }
+  .qual-screen { display: none; }
+  .qual-screen.active { display: block; }
+  @media (max-width: 640px) {
+    .qual-modal { margin: 16px auto; padding: 28px 22px 24px; }
+    .qual-question { font-size: 19px; }
+  }
 </style>
 <style data-editstyle>
   /* Edit mode */
@@ -503,8 +619,8 @@
         "@type": "Offer",
         "url": "https://freedomaios.com/",
         "priceCurrency": "USD",
-        "price": "300",
-        "description": "$300 flat. If the audit can't find you $1,000, you don't pay."
+        "price": "297",
+        "description": "$297 flat. If the audit can't find you $1,000, you don't pay."
       }
     }
   ]
@@ -535,7 +651,7 @@
         <p class="ts-role">Copywriter</p>
       </div>
       <div class="tslide" role="group" aria-roledescription="slide" aria-label="2 of 5">
-        <p class="ts-quote">&ldquo;&hellip;instrumental in our growth &mdash; over a thousand percent in nine months, and she gave me my focus and freedom back.&rdquo;</p>
+        <p class="ts-quote">&ldquo;&hellip;instrumental in our growth, 20x growth in nine months, and she gave me my focus and freedom back.&rdquo;</p>
         <p class="ts-name">Arthur Tubman</p>
         <p class="ts-role">CEO, D4Y Brand Builder</p>
       </div>
@@ -696,7 +812,7 @@
     <img src="./assets/img/testimonials/testimonial-10.png" alt="Manish Punjabi, Conversion Fanatics: Tina has worked with me to build and scale up multiple 7-figure companies">
   </div>
 
-  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">My clients pay <strong>$1,000 an hour</strong> to meet with me each week. This audit is <strong>$300, one flat price</strong>, because it's the first step toward a custom FreedomAIOS, built, installed, and maintained for you.</p>
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">My clients pay <strong>$1,000 an hour</strong> to meet with me each week. This audit is <strong>$297, one flat price</strong>, because it's the first step toward a custom FreedomAIOS, built, installed, and maintained for you.</p>
 
   <div class="clear"></div>
 
@@ -723,7 +839,7 @@
   <img src="./assets/img/testimonials/testimonial-2-new.png" alt="Corey Vandenberg, Co-Founder Clixsy: she showed us where the efficiencies were, helped us get ROI immediately, and brought a level of clarity I've never found anywhere else">
 </div>
 
-<h3 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The audit costs $300.</h3>
+<h3 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">The audit costs $297.</h3>
 
 <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">You show up. We look at how your business actually runs: where the hours go, where the money leaks, what is slowing everything down. You leave knowing exactly what is broken, what it costs you every month it stays broken, and what to fix first.</p>
 
@@ -823,7 +939,7 @@
   <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'"><strong>FreedomAIOS can help.</strong> I've figured out how to build systems that solve the problems I used to build teams to solve. Now we build those systems so your current team, even if it's just you, can run them to execute the roadmap for you. Each FreedomAIOS is a custom build, with the ability to support, and sometimes replace, entire departments.</p>
 
   <div class="feature-solo asset-wrap">
-    <img src="./assets/img/testimonials/testimonial-15.png" alt="Arthur Tubman, CEO D4Y Brand Builder: instrumental in our growth — over a thousand percent in nine months, and she gave me my focus and freedom back">
+    <img src="./assets/img/testimonials/testimonial-15-new.png" alt="Arthur Tubman, CEO D4Y Brand Builder: instrumental in our growth, 20x growth in nine months, and she gave me my focus and freedom back">
   </div>
 
   <div class="asset-wrap">
@@ -849,14 +965,14 @@
   <!-- ==================== THE GUARANTEE ==================== -->
   <h2 data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">My Guarantee to You</h2>
 
-  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="guarantee-text">If we don't find at least one way for you to generate or save <strong>$1,000</strong>, I refund your <strong>$300</strong> on the spot. No fine print. No forms. <strong>You risk nothing by showing up.</strong></p>
+  <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="guarantee-text">If we don't find at least one way for you to generate or save <strong>$1,000</strong>, I refund your <strong>$297</strong> on the spot. No fine print. No forms. <strong>You risk nothing by showing up.</strong></p>
 
   <div class="feature-solo asset-wrap">
     <img src="./assets/img/testimonials/testimonial-12.png" alt="Chris Schar, Golden Mastermind: working with Tina has been absolutely phenomenal — life-changing">
   </div>
 
   <div class="asset-wrap">
-    <img src="./assets/img/guarantee-badge-v3.png" alt="The FreedomAIOS Leak-Detection Promise: generate or save at least $1,000 or your $300 is refunded">
+    <img src="./assets/img/guarantee-badge-v3.png" alt="The FreedomAIOS Leak-Detection Promise: generate or save at least $1,000 or your $297 is refunded">
   </div>
 
   <!-- ==================== TYLER ELISON FEATURE ==================== -->
@@ -909,7 +1025,7 @@
       <figcaption>Gustavo Ferreira</figcaption>
     </figure>
     <figure>
-      <img src="./assets/img/testimonials/testimonial-15.png" alt="Testimonial card: Arthur Tubman">
+      <img src="./assets/img/testimonials/testimonial-15-new.png" alt="Testimonial card: Arthur Tubman">
       <figcaption>Arthur Tubman</figcaption>
     </figure>
     <figure>
@@ -927,10 +1043,159 @@
 
   <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">Here's all it takes. One session. You show up, I find the leaks, you leave with the Freedom Roadmap: what's broken, what it costs you, what to fix first. If I can't show you how to generate or save at least $1,000, you don't pay.</p>
 
-  <div class="cta">
-    <a class="btn" href="#book-your-audit-call">Show Me Where the Money Goes</a>
+  <div class="cta" id="book-your-audit-call">
+    <a class="btn" href="#book-your-audit-call" id="cta-open-qualifier">Show Me Where the Money Goes</a>
     <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="cta-note">I do these in person, one business at a time, so I keep the calendar short. This is for owners who already know something is leaking and want it found. If that's you, book now. If you're not there yet, keep this page. You'll know when it's time.</p>
   </div>
+
+  <!-- ==================== QUALIFIER MODAL ==================== -->
+  <div class="qual-overlay" id="qual-overlay" role="dialog" aria-modal="true" aria-labelledby="qual-question-text">
+    <div class="qual-modal">
+      <button type="button" class="qual-close" id="qual-close" aria-label="Close">&times;</button>
+
+      <div class="qual-screen active" id="qual-screen-quiz">
+        <div class="qual-progress-label" id="qual-progress-label">Question 1 of 3</div>
+        <div class="qual-progress-bar"><div class="qual-progress-fill" id="qual-progress-fill"></div></div>
+        <div class="qual-question" id="qual-question-text"></div>
+        <div id="qual-options"></div>
+        <button type="button" class="qual-back" id="qual-back" style="display:none">&larr; Back</button>
+      </div>
+
+      <div class="qual-screen qual-result" id="qual-result-free">
+        <h2>Start with the free resources. A paid audit would be a bad investment for you right now.</h2>
+        <p>Honest answer, based on your revenue: the paid options are priced for businesses where a found leak pays back the fee many times over. Under $10K a month, that math usually does not work yet. We do not take money we cannot return in value.</p>
+        <p>What you can use right now is our free template library. It shows the exact operating systems we build for clients, with live dashboards and setup guides you can borrow from today. Grow with that, and when you cross $10K months, come back. The door stays open.</p>
+        <a class="btn" href="./module-templates/">Browse the Free Template Library</a>
+      </div>
+
+      <div class="qual-screen qual-result" id="qual-result-assessment">
+        <h2>Your best next step is the $97 AIOS Assessment.</h2>
+        <p>At your revenue level, you do not need an hour on the phone to find the leak. You need sharp eyes on your numbers. The AIOS Assessment is an automated diagnostic scored against our rubric. A human reviews every report before it reaches you. No call required.</p>
+        <a class="btn" href="./assessment/">See the $97 AIOS Assessment</a>
+      </div>
+
+      <div class="qual-screen qual-result" id="qual-result-audit">
+        <h2>Your best next step is the $297 AIOS Audit call.</h2>
+        <p>At your revenue level, the leaks are big enough to justify a full working session. The AIOS Audit is a 60-minute phone call with a senior FreedomAIOS strategist. You hang up knowing exactly where the money goes and what to fix first.</p>
+        <a class="btn" href="./audit/">See the $297 AIOS Audit</a>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var overlay = document.getElementById('qual-overlay');
+    if (!overlay) { return; }
+
+    var questions = [
+      {
+        text: "First, what kind of business are you running?",
+        options: [
+          "Coaching, consulting, or done-for-you services",
+          "Agency or creative services",
+          "E-commerce or physical products",
+          "SaaS or software",
+          "Info products, courses, or memberships",
+          "Something else entirely"
+        ]
+      },
+      {
+        text: "What is your business bringing in per month, on average? Be honest. This only decides which option fits you.",
+        options: [
+          { label: "Under $10K a month", route: "free" },
+          { label: "$10K to $49K a month", route: "assessment" },
+          { label: "$50K or more a month", route: "audit" }
+        ]
+      },
+      {
+        text: "Where does your business bleed the most time or money right now? Pick the one that stings.",
+        options: [
+          "My calendar and meetings are a mess",
+          "Content and social, nothing gets out consistently",
+          "Money and financial ops, no clear picture of cash flow",
+          "Payroll, contractors, and team ops are chaos",
+          "Client delivery is held together with duct tape",
+          "Marketing and growth, I cannot get past where I am",
+          "Honestly, everything. I am the bottleneck."
+        ]
+      }
+    ];
+
+    var state = { index: 0, route: null };
+    var elLabel = document.getElementById('qual-progress-label');
+    var elFill = document.getElementById('qual-progress-fill');
+    var elQuestion = document.getElementById('qual-question-text');
+    var elOptions = document.getElementById('qual-options');
+    var elBack = document.getElementById('qual-back');
+    var screens = overlay.querySelectorAll('.qual-screen');
+
+    function showScreen(id) {
+      for (var i = 0; i < screens.length; i++) { screens[i].classList.remove('active'); }
+      document.getElementById(id).classList.add('active');
+    }
+
+    function renderQuestion() {
+      var q = questions[state.index];
+      elLabel.textContent = "Question " + (state.index + 1) + " of " + questions.length;
+      elFill.style.width = (((state.index + 1) / questions.length) * 100) + "%";
+      elQuestion.textContent = q.text;
+      elOptions.innerHTML = "";
+      q.options.forEach(function (opt) {
+        var label = (typeof opt === "string") ? opt : opt.label;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'qual-option';
+        btn.textContent = label;
+        btn.addEventListener('click', function () {
+          if (state.index === 1 && typeof opt === "object" && opt.route) {
+            state.route = opt.route;
+          }
+          if (state.index === 1 && state.route === "free") {
+            showScreen('qual-result-free');
+            return;
+          }
+          if (state.index < questions.length - 1) {
+            state.index++;
+            renderQuestion();
+          } else {
+            showScreen(state.route === "audit" ? 'qual-result-audit' : 'qual-result-assessment');
+          }
+        });
+        elOptions.appendChild(btn);
+      });
+      elBack.style.display = (state.index > 0) ? "" : "none";
+      showScreen('qual-screen-quiz');
+    }
+
+    function openModal() {
+      state.index = 0;
+      state.route = null;
+      renderQuestion();
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    elBack.addEventListener('click', function () {
+      if (state.index > 0) { state.index--; renderQuestion(); }
+    });
+    document.getElementById('qual-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) { closeModal(); } });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.classList.contains('open')) { closeModal(); }
+    });
+
+    var cta = document.getElementById('cta-open-qualifier');
+    if (cta) {
+      cta.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+    }
+    if (window.location.hash === '#book-your-audit-call') {
+      /* Deep link: keep the anchor scroll, and open the qualifier since that is the section's only action. */
+    }
+  })();
+  </script>
 
   
 

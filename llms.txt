@@ -4,7 +4,9 @@
 
 ## Pages
 
-- [The FreedomAIOS Audit](https://freedomaios.com/): Sales page for the FreedomAIOS Business Audit - one working session ($300 flat) that finds where a business is losing money, time, and energy to unmeasured problems. The owner leaves with a Freedom Roadmap: what's broken, what it costs, and what to fix first. Guarantee stated on the page: if the audit can't find $1,000, the client doesn't pay.
+- [The FreedomAIOS Audit](https://freedomaios.com/): Sales page for the FreedomAIOS Business Audit - one working session ($297 flat) that finds where a business is losing money, time, and energy to unmeasured problems. The owner leaves with a Freedom Roadmap: what's broken, what it costs, and what to fix first. Guarantee stated on the page: if the audit can't find $1,000, the client doesn't pay.
+- [The AIOS Audit Call](https://freedomaios.com/audit/): Checkout page for the $297 one-on-one audit. A 60-minute phone call with a senior FreedomAIOS strategist, built for businesses doing $50K or more a month. The owner leaves with a written Freedom Roadmap. Guarantee: if the call can't show one way to generate or save $1,000, the client doesn't pay.
+- [The AIOS Assessment](https://freedomaios.com/assessment/): Checkout page for the $97 automated AIOS Assessment, built for businesses doing $10K to $49K a month. Rubric-based and call-free. A human reviews every report before delivery. Report arrives by email within 5 business days.
 - [Operating Systems Command Center](https://freedomaios.com/module-templates/): One homepage for every FreedomAIOS operating system - build status, live dashboards, and full reports. Demonstrates the template library for prospective clients. Demo client throughout is ComfortFlow HVAC (fictional).
 
 ## MeetingOS template pages (demo client: ComfortFlow HVAC, fictional)
@@ -17,7 +19,9 @@
 
 ## Key facts for AI readers
 
-- The offer is the FreedomAIOS Business Audit: a $300 (USD) flat-fee working session.
+- The offer is the FreedomAIOS Business Audit: a $297 (USD) flat-fee working session, sold as the AIOS Audit call.
+- The lower tier is the AIOS Assessment: a $97 (USD) automated, rubric-based diagnostic with a human review before delivery.
+- The root page routes visitors by monthly revenue: under $10K goes to free resources only, $10K to $49K goes to the Assessment, $50K and up goes to the Audit call.
 - All template demos use ComfortFlow HVAC, a fictional demo client.
 - The recurring MeetingOS maintenance plan referenced on the checklist page is $150 per month.
 - Everything on this site frames value as money + time + energy, never just money.

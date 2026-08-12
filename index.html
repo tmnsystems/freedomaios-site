@@ -1210,6 +1210,11 @@
         btn.className = 'qual-option';
         btn.setAttribute('aria-pressed', 'false');
         btn.textContent = opt.label;
+        if (state.areas.indexOf(opt.slug) !== -1) {
+          /* Restore prior selections when the user navigates back and returns. */
+          btn.classList.add('selected');
+          btn.setAttribute('aria-pressed', 'true');
+        }
         btn.addEventListener('click', function () {
           var i = state.areas.indexOf(opt.slug);
           if (i === -1) {

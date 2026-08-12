@@ -5,15 +5,17 @@
 <title>The FreedomAIOS Audit</title>
 <meta name="description" content="Losing money, time, and energy to problems you can't see? One working session. You leave with a Freedom Roadmap: what to fix first, and how.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://freedomaios.com/">
+<meta property="og:site_name" content="FreedomAIOS">
 <meta property="og:title" content="Are You Losing Money, Time, and Energy to Problems You Can't Even See?">
 <meta property="og:description" content="You leave with a Freedom Roadmap: what's broken, what it costs you, what to fix first. $297, and if I can't find you $1,000, you don't pay.">
-<meta property="og:image" content="assets/img/og-image.png">
+<meta property="og:image" content="https://freedomaios.com/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Are You Losing Money, Time, and Energy to Problems You Can't Even See?">
 <meta name="twitter:description" content="You leave with a Freedom Roadmap: what's broken, what it costs you, what to fix first. $297, and if I can't find you $1,000, you don't pay.">
-<meta name="twitter:image" content="assets/img/og-image.png">
+<meta name="twitter:image" content="https://freedomaios.com/assets/img/og-image.png">
 <link rel="icon" href="./favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
 <link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
@@ -517,6 +519,31 @@
     box-shadow: 0 4px 20px rgba(27, 58, 92, 0.10);
     outline: none;
   }
+  .qual-option.selected {
+    border-color: #1B3A5C;
+    background: #EEF3F8;
+    box-shadow: inset 0 0 0 1px #1B3A5C;
+  }
+  .qual-option.selected::before {
+    content: "\2713  ";
+    font-weight: bold;
+    color: #1B3A5C;
+  }
+  .qual-continue {
+    display: block;
+    width: 100%;
+    background: #1B3A5C;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 15px 18px;
+    border: none;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+  .qual-continue:hover { background: #14304D; }
+  .qual-continue:disabled { background: #9AA7B4; cursor: not-allowed; }
   .qual-back {
     display: inline-block;
     margin-top: 14px;
@@ -877,7 +904,7 @@
   <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">I've called myself a catalyst for growth for years, period, and that's exactly what this audit is built to be.</p>
 
   <div class="feature-solo asset-wrap">
-    <img src="./assets/img/testimonials/testimonial-13.png" alt="David Corbaley, MarketingCommando.com: Tina literally gave my business a full makeover — I can see our business most likely doubling next year">
+    <img src="./assets/img/testimonials/testimonial-13.png" alt="David Corbaley, MarketingCommando.com: Tina literally gave my business a full makeover: I can see our business most likely doubling next year">
   </div>
 
   <div class="asset-wrap">
@@ -910,7 +937,7 @@
   <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">If you've got blanks in core fields, you've got unreliable data, and building a strategy on unreliable data is like building a house on a foundation you never checked. That's why we start with the baseline. Then we calculate your effective hourly rate: the hours you work each month, divided into the money you're making. That number tells you what your hour is actually worth, and for most owners it's the first real shock of the day.</p>
 
   <div class="t-side right asset-wrap">
-    <img src="./assets/img/testimonials/testimonial-11.png" alt="Gustavo Ferreira, Business Consultant and Copywriter: working with Tina gave me clarity — I created a high-ticket offer and clients paid for it">
+    <img src="./assets/img/testimonials/testimonial-11.png" alt="Gustavo Ferreira, Business Consultant and Copywriter: working with Tina gave me clarity: I created a high-ticket offer and clients paid for it">
   </div>
 
   <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'">From there the questions get sharper. What are the things only you can do? And what are the things only you can do <em>right now</em> that AI could already help with: email, calendar management, documents, research? The tools exist today. The right systems eliminate the manual checks and create work only for genuine issues, no human effort required, because it's built into the system.</p>
@@ -968,7 +995,7 @@
   <p data-editable contenteditable="false" onclick="if(document.body.classList.contains('editing')){this.contentEditable='true';this.focus();}" onblur="this.contentEditable='false'" class="guarantee-text">If we don't find at least one way for you to generate or save <strong>$1,000</strong>, I refund your <strong>$297</strong> on the spot. No fine print. No forms. <strong>You risk nothing by showing up.</strong></p>
 
   <div class="feature-solo asset-wrap">
-    <img src="./assets/img/testimonials/testimonial-12.png" alt="Chris Schar, Golden Mastermind: working with Tina has been absolutely phenomenal — life-changing">
+    <img src="./assets/img/testimonials/testimonial-12.png" alt="Chris Schar, Golden Mastermind: working with Tina has been absolutely phenomenal, life-changing">
   </div>
 
   <div class="asset-wrap">
@@ -1107,20 +1134,21 @@
         ]
       },
       {
-        text: "Where does your business bleed the most time or money right now? Pick the one that stings.",
+        text: "Where does your business bleed the most time or money right now? Pick every one that stings.",
+        multi: true,
         options: [
-          "My calendar and meetings are a mess",
-          "Content and social, nothing gets out consistently",
-          "Money and financial ops, no clear picture of cash flow",
-          "Payroll, contractors, and team ops are chaos",
-          "Client delivery is held together with duct tape",
-          "Marketing and growth, I cannot get past where I am",
-          "Honestly, everything. I am the bottleneck."
+          { label: "My calendar and meetings are a mess", slug: "time" },
+          { label: "Content and social, nothing gets out consistently", slug: "content" },
+          { label: "Money and financial ops, no clear picture of cash flow", slug: "money" },
+          { label: "Payroll, contractors, and team ops are chaos", slug: "team" },
+          { label: "Client delivery is held together with duct tape", slug: "delivery" },
+          { label: "Marketing and growth, I cannot get past where I am", slug: "growth" },
+          { label: "Honestly, everything. I am the bottleneck.", slug: "everything" }
         ]
       }
     ];
 
-    var state = { index: 0, route: null };
+    var state = { index: 0, route: null, areas: [] };
     var elLabel = document.getElementById('qual-progress-label');
     var elFill = document.getElementById('qual-progress-fill');
     var elQuestion = document.getElementById('qual-question-text');
@@ -1133,42 +1161,97 @@
       document.getElementById(id).classList.add('active');
     }
 
+    var resultBaseHrefs = {};
+    ['qual-result-assessment', 'qual-result-audit'].forEach(function (id) {
+      var a = document.querySelector('#' + id + ' a.btn');
+      if (a) { resultBaseHrefs[id] = a.getAttribute('href'); }
+    });
+
     function renderQuestion() {
       var q = questions[state.index];
       elLabel.textContent = "Question " + (state.index + 1) + " of " + questions.length;
       elFill.style.width = (((state.index + 1) / questions.length) * 100) + "%";
       elQuestion.textContent = q.text;
       elOptions.innerHTML = "";
+
+      if (q.multi) {
+        renderMultiSelect(q);
+      } else {
+        q.options.forEach(function (opt) {
+          var label = (typeof opt === "string") ? opt : opt.label;
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'qual-option';
+          btn.textContent = label;
+          btn.addEventListener('click', function () {
+            if (state.index === 1 && typeof opt === "object" && opt.route) {
+              state.route = opt.route;
+              try { localStorage.setItem('faios_route', state.route); } catch (e) {}
+            }
+            if (state.index === 1 && state.route === "free") {
+              showScreen('qual-result-free');
+              return;
+            }
+            state.index++;
+            renderQuestion();
+          });
+          elOptions.appendChild(btn);
+        });
+      }
+      elBack.style.display = (state.index > 0) ? "" : "none";
+      showScreen('qual-screen-quiz');
+    }
+
+    function renderMultiSelect(q) {
+      var cont = null;
       q.options.forEach(function (opt) {
-        var label = (typeof opt === "string") ? opt : opt.label;
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'qual-option';
-        btn.textContent = label;
+        btn.setAttribute('aria-pressed', 'false');
+        btn.textContent = opt.label;
         btn.addEventListener('click', function () {
-          if (state.index === 1 && typeof opt === "object" && opt.route) {
-            state.route = opt.route;
-          }
-          if (state.index === 1 && state.route === "free") {
-            showScreen('qual-result-free');
-            return;
-          }
-          if (state.index < questions.length - 1) {
-            state.index++;
-            renderQuestion();
+          var i = state.areas.indexOf(opt.slug);
+          if (i === -1) {
+            state.areas.push(opt.slug);
+            btn.classList.add('selected');
+            btn.setAttribute('aria-pressed', 'true');
           } else {
-            showScreen(state.route === "audit" ? 'qual-result-audit' : 'qual-result-assessment');
+            state.areas.splice(i, 1);
+            btn.classList.remove('selected');
+            btn.setAttribute('aria-pressed', 'false');
           }
+          if (cont) { cont.disabled = (state.areas.length === 0); }
         });
         elOptions.appendChild(btn);
       });
-      elBack.style.display = (state.index > 0) ? "" : "none";
-      showScreen('qual-screen-quiz');
+
+      cont = document.createElement('button');
+      cont.type = 'button';
+      cont.className = 'qual-continue';
+      cont.textContent = 'Show me my next step';
+      cont.disabled = (state.areas.length === 0);
+      cont.addEventListener('click', function () {
+        var areasParam = state.areas.join(',');
+        try { localStorage.setItem('faios_areas', areasParam); } catch (e) {}
+        var targetId = (state.route === "audit") ? 'qual-result-audit' : 'qual-result-assessment';
+        var link = document.querySelector('#' + targetId + ' a.btn');
+        if (link && resultBaseHrefs[targetId]) {
+          link.setAttribute('href', resultBaseHrefs[targetId] + '?areas=' + encodeURIComponent(areasParam));
+        }
+        showScreen(targetId);
+      });
+      elOptions.appendChild(cont);
     }
 
     function openModal() {
       state.index = 0;
       state.route = null;
+      state.areas = [];
+      Object.keys(resultBaseHrefs).forEach(function (id) {
+        var a = document.querySelector('#' + id + ' a.btn');
+        if (a) { a.setAttribute('href', resultBaseHrefs[id]); }
+      });
       renderQuestion();
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -1192,7 +1275,9 @@
       cta.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
     }
     if (window.location.hash === '#book-your-audit-call') {
-      /* Deep link: keep the anchor scroll, and open the qualifier since that is the section's only action. */
+      /* Deep link: the anchor scrolls to the CTA section, and the qualifier opens
+         since that is the section's only action (used by the checkout-page back links). */
+      openModal();
     }
   })();
   </script>
